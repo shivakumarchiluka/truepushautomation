@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TruePush Automation">
+
+	<listeners>
+		<listener class-name="com.qa.extentreportlistener.ExtentreporterNg" />
+	</listeners>
+
+  <test  name="Truepush testcases">
+    <classes>
+      <class name="com.truepush.qa.testcases.LoginTest"></class>
+      <class name="com.truepush.qa.testcases.ProjectPageTest"></class>
+    </classes>
+  </test>
+
+
+</suite> 
