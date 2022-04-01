@@ -2,6 +2,7 @@ package com.qa.truepush.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.truepush.qa.testbase.TestBase;
 
@@ -95,11 +96,11 @@ public class CodeIntegraionPage extends TestBase {
 	
 	
 	
+	public CodeIntegraionPage() {
 	
+	PageFactory.initElements(driver, this);
 	
-	
-	
-	
+	}
 	
 	
 	

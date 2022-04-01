@@ -3,13 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.CampaignpageTest">
+      <class name="com.truepush.qa.testcases.DashboardTest">
         <methods>
+          <include name="verifyTemplatesPageLink"/>
+          <include name="verifySubscribersPageLink"/>
           <include name="setup"/>
+          <include name="verifyTriggersPageLink"/>
+          <include name="verifyPricingPageLink"/>
+          <include name="verifyCodeIntegrationPageLink"/>
+          <include name="verifySegmentsPageLink"/>
           <include name="teardown"/>
-          <include name="validateCampaignPage" invocation-numbers="0 1"/>
+          <include name="verifyWeeklyStatus"/>
+          <include name="verfiyTruepushLogo"/>
+          <include name="verifySettingsPageLink"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.CampaignpageTest -->
+      </class> <!-- com.truepush.qa.testcases.DashboardTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

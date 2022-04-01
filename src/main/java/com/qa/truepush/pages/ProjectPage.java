@@ -12,6 +12,10 @@ public class ProjectPage extends TestBase{
 
 	WebElement projectId;
 	
+	@FindBy(linkText="controller")
+
+	WebElement project;
+	
 	@FindBy(xpath="//a[@title='solarsystem']")
 	WebElement projectId_02;
 	
@@ -66,6 +70,13 @@ public class ProjectPage extends TestBase{
 		
 		return new ProfilePage();
 		
+	}
+	
+	public DashboardPage clickonproject() {
+		
+		project.click();
+		
+		return new DashboardPage();
 	}
 	
 	

@@ -2,6 +2,7 @@ package com.qa.truepush.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import com.truepush.qa.testbase.TestBase;
 
@@ -180,4 +181,12 @@ public class SettingsPage extends TestBase{
 	 @FindBy(css = "button[type = \"submit\"]")
 	 
 	 WebElement updateplatform;
+	 
+	 
+	 
+	 public SettingsPage() {
+		 
+		 PageFactory.initElements(driver, this);
+		 
+	 }
 }

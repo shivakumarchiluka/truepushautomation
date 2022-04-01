@@ -3,6 +3,7 @@ package com.truepush.qa.utilities;
 import java.io.File;
 
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -16,14 +17,16 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+
 public class Testut {
+	
 	static WebDriver driver;
 
 	static Sheet sheet;
 
 	static Workbook book;
 
-	public static long PAGELOAD_TIMEOUT=50;
+	public static long PAGELOAD_TIMEOUT=99;
 	
 	
 	  public static long IMPLICIT_WAIT=50;

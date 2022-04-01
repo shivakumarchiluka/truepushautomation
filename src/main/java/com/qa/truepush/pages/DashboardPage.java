@@ -1,14 +1,16 @@
 package com.qa.truepush.pages;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 
 import com.truepush.qa.testbase.TestBase;
 
 public class DashboardPage extends TestBase{
 
-	
+	 
 	@FindBy(xpath = "//img[@alt=\"Truepush logo\"]")
 	
 	WebElement Logo;
@@ -22,6 +24,7 @@ public class DashboardPage extends TestBase{
 	
 	WebElement searchproject;
 	
+	
 	@FindBy(css = "button[title=\"Create New Project\"]")
 	
 	WebElement createnewproject;
@@ -34,12 +37,16 @@ public class DashboardPage extends TestBase{
 	
 	@FindBy(xpath = "//div[@class=\"project-dropdown\"]/following::button[3]")
 	
-	WebElement profile;
+	WebElement profileicon;
 	
 	
 	@FindBy(xpath = "//div[@class=\"project-dropdown\"]/following::button[4]")
 	
 	WebElement menu;
+	
+	@FindBy(xpath = "//div[contains(@class, \"status \")]")
+	
+	WebElement freelogo;
 	
 	
 	@FindBy(xpath = "//strong[text()='Opt-in Guides']/parent::button")
@@ -120,7 +127,7 @@ public class DashboardPage extends TestBase{
      WebElement pricing;
     
 
-    @FindBy(xpath = "//button[text()='Help Us Improve']")
+    @FindBy(xpath = "//h6[text() =\"Feedback\"]")
     
     WebElement feedback;
     
@@ -129,10 +136,16 @@ public class DashboardPage extends TestBase{
 	
 	public DashboardPage() {
 		
-		
 		PageFactory.initElements(driver, this);
 		
                   	}
+	
+	
+	public String validatePageTilte() {
+		
+		return driver.getTitle();
+		
+	}
 	
 	public boolean truepushlogo() {
 		
@@ -194,7 +207,7 @@ public class DashboardPage extends TestBase{
 
 	  public CampaignPage clickoncampaignlink(){
 		  
-		  campaignlink.click();
+	
 		
 		  return new CampaignPage();
 		  
@@ -281,16 +294,20 @@ public class DashboardPage extends TestBase{
 	  
 
 		
-	  public FeedbackPage clickonfeedbacklink() {
+	  public void clickonfeedbacklink() {
 		  
-		  
-		  feedback.click();
-		  
-		  return new FeedbackPage();
+
+		    feedback.click();
+
 		  
 	  }	  
 	  
-
+     public ProfilePage clickonprofileicon() {
+    	 
+    	 profileicon.click();
+    	
+    	 return new ProfilePage();
+     }
 		
 
 	  

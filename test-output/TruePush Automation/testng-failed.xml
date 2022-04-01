@@ -3,24 +3,13 @@
 <suite name="Failed suite [TruePush Automation]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Truepush testcases(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.ProjectPageTest">
+      <class name="com.truepush.qa.testcases.DashboardTest">
         <methods>
-          <include name="Verifyprofile"/>
-          <include name="VerifyNewProject"/>
           <include name="setup"/>
+          <include name="verifyFeedbackPageLink"/>
           <include name="teardown"/>
-          <include name="VerifyprojectLink"/>
-          <include name="VerifyUsersLink"/>
-          <include name="Verifyproject2link"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.ProjectPageTest -->
-      <class name="com.truepush.qa.testcases.LoginTest">
-        <methods>
-          <include name="ValidateLogin"/>
-          <include name="teardown"/>
-          <include name="setUP"/>
-        </methods>
-      </class> <!-- com.truepush.qa.testcases.LoginTest -->
+      </class> <!-- com.truepush.qa.testcases.DashboardTest -->
     </classes>
   </test> <!-- Truepush testcases(failed) -->
 </suite> <!-- Failed suite [TruePush Automation] -->

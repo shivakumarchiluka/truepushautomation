@@ -51,9 +51,9 @@ public class CampaignpageTest extends TestBase {
 
 		 projectpage.clickOnProjectlink();
 		 
-		  campaignpage = new CampaignPage();
        
 		 dashboardpage = new  DashboardPage();
+		  campaignpage = new CampaignPage();
 
 			campaignpage =dashboardpage.clickoncampaignlink();
 

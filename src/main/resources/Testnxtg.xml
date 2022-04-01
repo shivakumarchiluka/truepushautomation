@@ -6,12 +6,32 @@
 		<listener class-name="com.qa.extentreportlistener.ExtentreporterNg" />
 	</listeners>
 
-  <test  name="Truepush testcases">
+  <test  name="Truepush login">
     <classes>
       <class name="com.truepush.qa.testcases.LoginTest"></class>
-      <class name="com.truepush.qa.testcases.ProjectPageTest"></class>
     </classes>
   </test>
 
+<test name="Truepush projectlist">
+<classes>
+<class name="com.truepush.qa.testcases.ProjectPageTest"></class>
+
+</classes>
+
+</test>
+
+<test name="Truepush dashboard">
+<classes>
+<class name="com.truepush.qa.testcases.DashboardTest"></class>
+</classes>
+
+</test>
+
+<test name="Truepush campaigns">
+<classes>
+<class name="com.truepush.qa.testcases.CampaignpageTest"></class>
+</classes>
+
+</test>
 
 </suite> 

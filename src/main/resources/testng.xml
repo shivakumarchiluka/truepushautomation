@@ -3,8 +3,12 @@
 <suite name="TruePush Automation">
   <test  name="Truepush testcases">
     <classes>
-      <class name="com.truepush.qa.testcases.LoginTest"></class>
-      <class name="com.truepush.qa.testcases.ProjectPageTest"></class>
+<class name="com.truepush.qa.testcases.DashboardTest">
+<methods> <include name="verifyFeedbackPageLink"></include>
+</methods>
+
+
+</class>
     </classes>
   </test>
 

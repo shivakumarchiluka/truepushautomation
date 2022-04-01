@@ -76,6 +76,8 @@ public class TestBase {
 			driver.manage().timeouts().implicitlyWait(Testut.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(prop.getProperty("url"));
+		driver.manage().timeouts().pageLoadTimeout(Testut.PAGELOAD_TIMEOUT, TimeUnit.SECONDS);
+
 
 		eventdriver = new EventFiringWebDriver (driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
