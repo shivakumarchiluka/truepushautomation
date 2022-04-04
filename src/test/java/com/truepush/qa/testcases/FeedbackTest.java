@@ -1,27 +1,35 @@
 package com.truepush.qa.testcases;
 
+
+
 import org.testng.annotations.AfterMethod;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.qa.truepush.pages.DashboardPage;
 import com.qa.truepush.pages.FeedbackPage;
 import com.qa.truepush.pages.Loginpage;
+import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.ProjectPage;
 import com.truepush.qa.testbase.TestBase;
 
 public class FeedbackTest extends TestBase{
 	
 	
-	 Loginpage loginpage;
+
+
+	Loginpage loginpage;
 
 	ProjectPage projectpage;
 	
 	
-	DashboardPage dashboardpage;
 	
-	FeedbackPage feedbackpage;
-	
+    Maininterface maininterface;	
+    
+    
+    
+    FeedbackPage feedbackpage;
+    
 	public FeedbackTest() {
 		
 		super();
@@ -43,22 +51,24 @@ public class FeedbackTest extends TestBase{
 
 		 projectpage = new ProjectPage();
 
-		 dashboardpage	=   projectpage.clickonproject();
+		  projectpage.clickOnProjectlink();
 		 		 
-		 dashboardpage = new  DashboardPage();
-		 
-	      feedbackpage = new FeedbackPage();
-		 
-			dashboardpage.clickonfeedbacklink();
-
-
-	}
+         maininterface = new Maininterface();	      
+	      
+	   maininterface.clickonfeedbacklink();
+	      
+	   
+	   feedbackpage = new FeedbackPage();
+          	}
 
 
 	@Test
 	
 	public void verifyfeedbackform() {
 		
+
+	      
+
 
 		feedbackpage.feedbackForm("hello good morning", "have a nice day");
 		

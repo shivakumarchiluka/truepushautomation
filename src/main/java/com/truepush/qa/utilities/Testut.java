@@ -31,23 +31,20 @@ public class Testut {
 	
 	  public static long IMPLICIT_WAIT=50;
 	  
+		public static void takeScreenshotAtEndOfTest() throws IOException {
+			
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			String currentDir = System.getProperty("user.dir");
+			FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+		}
 
-		public static String TESTDATA_SHEET_PATH = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main/"
-				+ "java/com/truepush/qa/testdata/campaigns.xlsx";
-	  
-	public static void takeScreenshotAtEndOfTest() throws IOException {
 		
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String currentDir = System.getProperty("user.dir");
-		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
-	}
+	  
+		public static String TESTDATA_SHEET_PATH = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
+				+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+	  
 
-	
-	
-	
-
-
-	public static Object[][] getTestData(String sheetName) {
+	public static Object[][] getCampaignTestData(String sheetName) {
 		FileInputStream file = null;
 		try {
 			file = new FileInputStream(TESTDATA_SHEET_PATH);
@@ -74,5 +71,130 @@ public class Testut {
 		return data;
 	}
 	
-	
+	public static String TESTDATA_SHEET_PATH1 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
+			+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+  
+
+public static Object[][] getRSSTestData(String sheetName) {
+	FileInputStream file = null;
+	try {
+		file = new FileInputStream(TESTDATA_SHEET_PATH1);
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	}
+	try {
+		book = WorkbookFactory.create(file);
+	} catch (InvalidFormatException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	sheet = book.getSheet(sheetName);
+	Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+	// System.out.println(sheet.getLastRowNum() + "--------" +
+	// sheet.getRow(0).getLastCellNum());
+	for (int i = 0; i < sheet.getLastRowNum(); i++) {
+		for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
+			data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+			// System.out.println(data[i][k]);
+		}
+	}
+	return data;
+}
+
+public static String TESTDATA_SHEET_PATH2 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
+		+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+
+
+public static Object[][] getSegmentTestData(String sheetName) {
+FileInputStream file = null;
+try {
+	file = new FileInputStream(TESTDATA_SHEET_PATH2);
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+}
+try {
+	book = WorkbookFactory.create(file);
+} catch (InvalidFormatException e) {
+	e.printStackTrace();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+sheet = book.getSheet(sheetName);
+Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+// System.out.println(sheet.getLastRowNum() + "--------" +
+// sheet.getRow(0).getLastCellNum());
+for (int i = 0; i < sheet.getLastRowNum(); i++) {
+	for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
+		data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+		// System.out.println(data[i][k]);
+	}
+}
+return data;
+}
+
+public static String TESTDATA_SHEET_PATH3 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
+		+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+
+
+public static Object[][] getTemplateTestData(String sheetName) {
+FileInputStream file = null;
+try {
+	file = new FileInputStream(TESTDATA_SHEET_PATH3);
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+}
+try {
+	book = WorkbookFactory.create(file);
+} catch (InvalidFormatException e) {
+	e.printStackTrace();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+sheet = book.getSheet(sheetName);
+Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+// System.out.println(sheet.getLastRowNum() + "--------" +
+// sheet.getRow(0).getLastCellNum());
+for (int i = 0; i < sheet.getLastRowNum(); i++) {
+	for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
+		data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+		// System.out.println(data[i][k]);
+	}
+}
+return data;
+}
+
+public static String TESTDATA_SHEET_PATH4 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
+		+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+
+
+public static Object[][] getTriggerTestData(String sheetName) {
+FileInputStream file = null;
+try {
+	file = new FileInputStream(TESTDATA_SHEET_PATH4);
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+}
+try {
+	book = WorkbookFactory.create(file);
+} catch (InvalidFormatException e) {
+	e.printStackTrace();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+sheet = book.getSheet(sheetName);
+Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+// System.out.println(sheet.getLastRowNum() + "--------" +
+// sheet.getRow(0).getLastCellNum());
+for (int i = 0; i < sheet.getLastRowNum(); i++) {
+	for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
+		data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+		// System.out.println(data[i][k]);
+	}
+}
+return data;
+}
+
+
+
 }

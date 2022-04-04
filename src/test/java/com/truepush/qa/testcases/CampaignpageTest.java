@@ -4,13 +4,14 @@ import org.testng.annotations.AfterMethod;
 
 
 
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.CampaignPage;
-import com.qa.truepush.pages.DashboardPage;
 import com.qa.truepush.pages.Loginpage;
+import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.ProjectPage;
 import com.truepush.qa.testbase.TestBase;
 import com.truepush.qa.utilities.Testut;
@@ -23,7 +24,8 @@ public class CampaignpageTest extends TestBase {
 	ProjectPage projectpage;
 	
 	
-	DashboardPage dashboardpage;
+	Maininterface maininterface;
+	
 	CampaignPage campaignpage;
 	
 	
@@ -39,7 +41,7 @@ public class CampaignpageTest extends TestBase {
 	
 	@BeforeMethod
 	
-	public void setup() {
+	public void setup()  {
 
 		initialization();
 				 
@@ -51,11 +53,12 @@ public class CampaignpageTest extends TestBase {
 
 		 projectpage.clickOnProjectlink();
 		 
-       
-		 dashboardpage = new  DashboardPage();
+          maininterface = new Maininterface();
+          
+          
 		  campaignpage = new CampaignPage();
 
-			campaignpage =dashboardpage.clickoncampaignlink();
+			campaignpage =  maininterface.clickoncampaignlink();
 
      	}
 	
@@ -64,7 +67,7 @@ public class CampaignpageTest extends TestBase {
 	
 	@DataProvider
 	public Object[][] campaigntestdata() {
-		Object data[][]=Testut.getTestData(sheetName);
+		Object data[][]=Testut.getCampaignTestData(sheetName);
 		return data;
 		
 	}
@@ -72,11 +75,9 @@ public class CampaignpageTest extends TestBase {
 	
 	
 	@Test(dataProvider = "campaigntestdata")
-	public void validateCampaignPage(String Enterurl, String Entertitle, String Entermessage) throws InterruptedException {
+	public void validateCampaignPage(String Enterurl, String Entertitle, String Entermessage) {
 
-   Thread.sleep(3000);
-   
-//	dashboardpage.clickoncampaignlink();
+	
 	
         campaignpage.clickoncreatecampaign(Enterurl, Entertitle, Entermessage);	
 		

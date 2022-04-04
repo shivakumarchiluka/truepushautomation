@@ -3,21 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.DashboardTest">
+      <class name="com.truepush.qa.testcases.RSSTest">
         <methods>
-          <include name="verifyTemplatesPageLink"/>
-          <include name="verifySubscribersPageLink"/>
           <include name="setup"/>
-          <include name="verifyTriggersPageLink"/>
-          <include name="verifyPricingPageLink"/>
-          <include name="verifyCodeIntegrationPageLink"/>
-          <include name="verifySegmentsPageLink"/>
           <include name="teardown"/>
-          <include name="verifyWeeklyStatus"/>
-          <include name="verfiyTruepushLogo"/>
-          <include name="verifySettingsPageLink"/>
+          <include name="addNewRSSFeed"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.DashboardTest -->
+      </class> <!-- com.truepush.qa.testcases.RSSTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
