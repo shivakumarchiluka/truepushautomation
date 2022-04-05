@@ -20,14 +20,18 @@ public class TemplatesPage extends TestBase{
 	WebElement addnewtemplate;
 	
 	
+	
 	@FindBy(xpath = "//section[@class = \"preview-notification\"]/descendant::button[2]")
 	
 	WebElement windowsplatform;
 	
 	
+	
 	@FindBy(xpath = "//section[@class = \"preview-notification\"]/descendant::button[3]")
 	
 	WebElement appleplatform;
+	
+	
 	
 	@FindBy(xpath ="//label[text()='Template Name']/following-sibling::input")
 	
@@ -53,9 +57,10 @@ public class TemplatesPage extends TestBase{
 	
 	
 	
-	@FindBy(xpath = "\"//button[text()='Create Template']\"")
+	@FindBy(xpath = "//button[contains(text(),\"Create\")]")
 	
 	WebElement submittemplate;
+	
 	
 	
 	public TemplatesPage() {
@@ -65,6 +70,32 @@ public class TemplatesPage extends TestBase{
 	}
 	
 	
+	public void createTemplate(String TemplateName ,String LandingPageURL,String Title,String Message) {
+		
+		
+		
+		createtemplate.click();
+		
+		entertemplatename.sendKeys(TemplateName);
+		
+		enterlandingpageurl.sendKeys(LandingPageURL);
+		
+		entertitle.sendKeys(Title);
+		
+		entermessage.sendKeys(Message);
+		
+		submittemplate.click();
+		
+	}
 	
-
+	
+	public void createTemplateDTT() {
+		
+		
+		addnewtemplate.click();
+		
+	
+		
+	}
+	
 }

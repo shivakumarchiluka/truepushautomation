@@ -31,17 +31,21 @@ public class Testut {
 	
 	  public static long IMPLICIT_WAIT=50;
 	  
+	  
 		public static void takeScreenshotAtEndOfTest() throws IOException {
 			
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			String currentDir = System.getProperty("user.dir");
 			FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+			
 		}
 
 		
 	  
+		
+		
 		public static String TESTDATA_SHEET_PATH = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
-				+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+				+ "/java/com/truepush/qa/testdata/campaigns.xlsx";
 	  
 
 	public static Object[][] getCampaignTestData(String sheetName) {
@@ -70,6 +74,14 @@ public class Testut {
 		}
 		return data;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static String TESTDATA_SHEET_PATH1 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
 			+ "/java/com/truepush/qa/testdata/RSS.xlsx";
@@ -102,8 +114,15 @@ public static Object[][] getRSSTestData(String sheetName) {
 	return data;
 }
 
-public static String TESTDATA_SHEET_PATH2 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
-		+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+
+
+
+
+
+
+
+public static String TESTDATA_SHEET_PATH2 = "/home/exe0028/Desktop/shiva/Truepushautomation/"
+		+ "src/main/java/com/truepush/qa/testdata/segments.xlsx";
 
 
 public static Object[][] getSegmentTestData(String sheetName) {
@@ -133,8 +152,10 @@ for (int i = 0; i < sheet.getLastRowNum(); i++) {
 return data;
 }
 
-public static String TESTDATA_SHEET_PATH3 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
-		+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+
+
+public static String TESTDATA_SHEET_PATH3 = "/home/exe0028/Desktop/shiva/Truepushautomation/src"
+		+ "/main/java/com/truepush/qa/testdata/templates.xlsx";
 
 
 public static Object[][] getTemplateTestData(String sheetName) {
@@ -164,8 +185,15 @@ for (int i = 0; i < sheet.getLastRowNum(); i++) {
 return data;
 }
 
+
+
+
+
+
+
+
 public static String TESTDATA_SHEET_PATH4 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
-		+ "/java/com/truepush/qa/testdata/RSS.xlsx";
+		+ "/java/com/truepush/qa/testdata/triggers.xlsx";
 
 
 public static Object[][] getTriggerTestData(String sheetName) {
