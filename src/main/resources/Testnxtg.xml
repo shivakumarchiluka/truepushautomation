@@ -7,31 +7,29 @@
 	</listeners>
 
   <test  name="Truepush login">
+
     <classes>
+
       <class name="com.truepush.qa.testcases.LoginTest"></class>
+
     </classes>
+
   </test>
 
-<test name="Truepush projectlist">
+
+<test name="Truepush SegmentPage">
+
 <classes>
-<class name="com.truepush.qa.testcases.ProjectPageTest"></class>
+
+<class name="com.truepush.qa.testcases.SegmentsTest">
+
+<methods><include name="validateSegmentCreationTest"></include></methods>
+
+<methods><include name="validateSegmentCreationDDTTest"></include></methods></class>
 
 </classes>
 
 </test>
 
-<test name="Truepush dashboard">
-<classes>
-<class name="com.truepush.qa.testcases.DashboardTest"></class>
-</classes>
-
-</test>
-
-<test name="Truepush campaigns">
-<classes>
-<class name="com.truepush.qa.testcases.CampaignpageTest"></class>
-</classes>
-
-</test>
 
 </suite> 

@@ -70,43 +70,48 @@ public class DashboardPage extends TestBase{
 		
 		
 	 Optinguides.click();
-		
-                   	}
+	 
+        	}
+	
 	
 	public void clickonrefreshicon() {
 		
 		
 		refreshdata.click();
 		
-	             }
+	       }
 	
 	public boolean totalsummary() {
 		
 		
-		
 		return summary.isDisplayed();
-	                }
+		
+           }
 	
 	
 	public boolean Weeklystats() {
 		
 		
 		return weeklystats.isDisplayed();
-	           }
+		
+	       }
+	
 	
 	public boolean Last2daysstats() {
 		
 		
 		return last2daysstats.isDisplayed();
 		
-              	}
+        	}
+	
 	
 	public boolean Lastcampaigns() {
 		
 		
 		return last5campaigns.isDisplayed();
 		
-               	}
+          	}
+	
 	
 	public void clickonallcampaignslink() {
 		
@@ -114,7 +119,7 @@ public class DashboardPage extends TestBase{
 		Viewallcampaigns.click();
 		
 		
-               	}
+         	}
 
 	  
 	  

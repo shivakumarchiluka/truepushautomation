@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [TruePush Automation]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Truepush testcases(failed)">
+  <listeners>
+    <listener class-name="com.qa.extentreportlistener.ExtentreporterNg"/>
+  </listeners>
+  <test thread-count="5" name="Truepush SegmentPage(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.DashboardTest">
+      <class name="com.truepush.qa.testcases.SegmentsTest">
         <methods>
           <include name="setup"/>
-          <include name="verifyFeedbackPageLink"/>
           <include name="teardown"/>
+          <include name="validateSegmentCreationDDTTest" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.DashboardTest -->
+      </class> <!-- com.truepush.qa.testcases.SegmentsTest -->
     </classes>
-  </test> <!-- Truepush testcases(failed) -->
+  </test> <!-- Truepush SegmentPage(failed) -->
 </suite> <!-- Failed suite [TruePush Automation] -->

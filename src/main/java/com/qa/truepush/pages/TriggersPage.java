@@ -1,5 +1,6 @@
 package com.qa.truepush.pages;
 
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +14,9 @@ public class TriggersPage extends TestBase{
 
 	WebElement createtrigger;
 	
+	@FindBy(xpath = "//button[text() = \"New Trigger\"]") //after creating the first trigger
+	
+	WebElement Addtrigger;
 
 	@FindBy(css = "input[name=\"name\"]")
 
@@ -26,7 +30,7 @@ public class TriggersPage extends TestBase{
 	
 	
 
-	@FindBy(css = "select[name=\"segments\"]")
+	@FindBy(xpath = "//select[@name = \"segments\"]")
 
 	WebElement selectaudience;
 	
@@ -116,40 +120,88 @@ public class TriggersPage extends TestBase{
 
 	
 	
-	public void clickOnCreateTrigger() {
+	
+	public void  CreateTrigger(String tgrnme ,String tgrnts) {
 		
+
 		createtrigger.click();
-	}
-	
-	
-	public void  addNewTrigger(String tgrnme ,String tgrnts,String temp) {
-		
+
 		triggername.sendKeys(tgrnme);
 		
 		triggernotes.sendKeys(tgrnts);
 		
-		Select select = new Select(selecttemplate);
 		
-		select.selectByVisibleText(temp);
+		Select select = new Select(selectaudience);
+		
+		select.selectByVisibleText("browser");
+		
+		Select select1 = new Select(selecttemplate);
+		
+		select1.selectByVisibleText("w3schools");
 		
 		
 	}
 	
-	public void sendttriggerrepeatedly(String catgy,String hh ,String mm) {
+	public void sendttriggerrepeatedly(String hh , String mm) {
 		
+
 		
 		triggerrepeat.click();
 		
 		Select select = new Select(selectcategory);
 		
-		select.selectByValue(catgy);
+		select.selectByVisibleText("Daily");
 		
 		triggerhours.sendKeys(hh);
 		
 		triggermm.sendKeys(mm);
 		
 		submitnotification.click();
+		
+		
 	}
+	
+	
+	
+	public void createTriggerDDT(String TriggerName ,String TriggerNotes,String HH , String MM) {
+		
+		
+		Addtrigger.click();
+		
+		
+		triggername.sendKeys(TriggerName);
+		
+		triggernotes.sendKeys(TriggerNotes);
+		
+		
+		Select select = new Select(selectaudience);
+		
+		select.selectByVisibleText("browser");
+		
+		
+		Select select1 = new Select(selecttemplate);
+		
+		select1.selectByVisibleText("w3schools");
+		
+		
+		triggerrepeat.click();
+		
+		Select select2 = new Select(selectcategory);
+		
+		select2.selectByVisibleText("Daily");
+		
+		triggerhours.sendKeys(HH);
+		
+		triggermm.sendKeys(MM);
+		
+		submitnotification.click();
+		
+		
+		
+	}
+	
+	
+	
 	
 	public void editTrigger(String hrs ,String mns) {
 		
