@@ -20,7 +20,7 @@ public class CodeIntegraionPage extends TestBase {
 	
 	
 
-	@FindBy(xpath = "//button[text()='Download sw.js']/following::button[1]")
+	@FindBy(css = "//button[text()='Download sw.js']/following::button[1]")
 	
 	WebElement script;
 	
@@ -104,7 +104,12 @@ public class CodeIntegraionPage extends TestBase {
 	
 	
 	
-	
+	public void verifyScript() {
+		
+		
+		script.click();
+		
+	}
 	
 	
 	

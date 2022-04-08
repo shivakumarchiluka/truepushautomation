@@ -1,8 +1,18 @@
 package com.qa.truepush.pages;
 
+
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 
 import com.truepush.qa.testbase.TestBase;
 
@@ -10,13 +20,22 @@ public class SettingsPage extends TestBase{
 
 	
 	
-	@FindBy(xpath = "//td[text()='website']/following::button[3]")
+	@FindBy(xpath = "//input[@id = \"apiToken\"]")
 	
 	WebElement APIkey;
 	
 	
+	@FindBy(xpath = "//label[text()=\"REST API Key\"]")
+	
+	WebElement RestAPI;
+	
+	
+	@FindBy(xpath = "//label[text()=\"APP Id\"]")
+	
+	WebElement APPIdTxt;
+	
 
-	@FindBy(xpath = "//td[text()='website']/following::button[4]")
+	@FindBy(css = "input#appId")
 	
 	WebElement APPId;
 	
@@ -54,7 +73,7 @@ public class SettingsPage extends TestBase{
 
     
 	
-	@FindBy(xpath = "//input[@aria-label=\\\"Text input with dropdown button\\\"]")
+	@FindBy(xpath = "//input[@aria-label=\"Text input with dropdown button\"]")
 	
 	WebElement Enterwebsiteurl;
 	
@@ -65,15 +84,50 @@ public class SettingsPage extends TestBase{
 	WebElement readdocumentation;
 	
 	
+	@FindBy(css = "div[class=\"ig_close\"]")
+	
+	WebElement exit;
+	
+	
+	@FindBy(xpath = "//div[@class=\"td-container tdc-content-wrap \"]/preceding::a[35]")
+	
+	WebElement  writeforus;
+	
+	
+	@FindBy(xpath = "//strong[text()=\"Suggested Topics\"]")
+	
+	WebElement suggestedtopics;
+	
+	
+	@FindBy(xpath = "//button[@onclick=\"truepush.HideOptin('close')\"]")
+	
+	WebElement Notallow;
+	
+	
+	@FindBy(xpath = "//button[@onclick=\"truepush.subscribeUserByTwoWayOptIn('hide')\"]")
+	
+	WebElement Allow;
+	
+	
+	@FindBy(css = "div[class=\"drift-widget-controller-icon square\"]")
+	
+	WebElement turn;
+	
+	
+	@FindBy(css = "button.remove-image")
+	
+	WebElement removeimage;
+	
+	
 	
     @FindBy(css = "label[aria-label='Upload Product Icon']")
 
 	WebElement producticon;
     
     
-    @FindBy(css = "//input[@name = \"safari\"]/following::label[1]")
+    @FindBy(xpath = "//input[@name = \"safari\"]/following::label[1]")
     
-    WebElement EnableSafaribrowser;
+    WebElement Enablesafaribrowser;
     
 	
 	@FindBy(xpath = "//button[text()='Change Optin']")
@@ -83,7 +137,7 @@ public class SettingsPage extends TestBase{
 	
 	@FindBy(xpath = "//span[text()='Box']")//bell ,Optin-bar,default browser,cutom default+
 	
-	WebElement Optinstyle;
+	WebElement optinstyle;
 	
 	
 	@FindBy(xpath = "//button[text()='Choose This Style']")
@@ -137,19 +191,19 @@ public class SettingsPage extends TestBase{
 	
 	
 	
-    @FindBy(xpath = "input[name='tempTitle']")
+    @FindBy(css = "input[name='tempTitle']")
 	
 	WebElement entertitle;
 	
 	
-    @FindBy(xpath = "textarea[name='message']")
+    @FindBy(css = "textarea[name='message']")
 	
 	WebElement entermessage;
 	
 	
     @FindBy(xpath = "//span[text()='User Interaction Required']")
 
-	WebElement useriinteraction;
+	WebElement userinteraction;
 	
 	
 	 @FindBy(xpath = "//button[text()='Save Notification']")
@@ -173,9 +227,10 @@ public class SettingsPage extends TestBase{
    	WebElement optinfrequentshow;
 	 
 	 
-	 @FindBy(xpath = "//a[text() = \"Read our documentation\"]/following::h6[7]") // default page refresh
+	 @FindBy(xpath = "//a[text() = \"Read our documentation\"]/following::h6[4]") // default page refresh
 	 
 	 WebElement newsession;
+	 
 	 
 	 
 	 @FindBy(css = "button[type = \"submit\"]")
@@ -183,10 +238,233 @@ public class SettingsPage extends TestBase{
 	 WebElement updateplatform;
 	 
 	 
+	 @FindBy(xpath = "//li[text()='GDPR']")
+	 
+	 WebElement GDPR;
+	 
 	 
 	 public SettingsPage() {
 		 
 		 PageFactory.initElements(driver, this);
 		 
 	 }
+	 
+	 
+	 
+	 
+	public void editSettings(String url) {
+		
+		
+		Edit.click();
+		
+		Enterwebsiteurl.clear();
+		
+		Enterwebsiteurl.sendKeys(url);
+		
+	}
+	
+	public void verifyDocumentationLink() {
+		
+		
+		Edit.click();
+
+		
+		readdocumentation.click();
+		
+        Set<String> windowhandles = driver.getWindowHandles();
+		System.out.print(windowhandles);
+	    Iterator<String>iterator = windowhandles.iterator();
+	    String parentwindow = iterator.next();
+	    System.out.println(parentwindow);
+	    String childwindow = iterator.next();
+	    System.out.println(childwindow);
+	    
+	    driver.switchTo().window(childwindow);
+	    
+	    exit.click();
+	    
+	    Notallow.click();
+	    
+	    driver.close();
+	    
+	    driver.switchTo().window(parentwindow);
+	    
+	   Enablesafaribrowser.click();
+	   
+	   driver.close();
+	}
+		
+	
+
+
+
+
+	public void verifyEditOptinStyle() {
+		
+		Edit.click();
+
+		changeoptin.click();
+		
+		    optinstyle.click();
+		
+		           savethestyle.click();
+		           
+	}
+	
+		public void verifyOptinContent(String maintxt ,String subtxt,String firsttxt,String secondtxt){
+			
+			Edit.click();
+
+		editcontent.click();
+		
+		          maintext.sendKeys(maintxt);
+		
+    firstbuttontext.sendKeys(firsttxt);
+		
+	        	Subtext.sendKeys(subtxt);
+		
+	               	secondbuttontext.sendKeys(secondtxt);
+		
+		savecontent.click();
+		
+		
+	}
+	 
+	 public void verifyWelcomeNotification(String title,String message) {
+		 
+			Edit.click();
+
+		 
+		 welcomenotification.click();
+		 
+		 
+		createwelcomenotification.click();
+		 
+		
+		           entertitle.sendKeys(title);
+		 
+		           
+		 entermessage.sendKeys(message);
+		 
+		 
+	     	 userinteraction.click();
+	     	 
+		 
+	               	 savenotification.click();
+		 
+	 }
+	 
+	 
+	 public boolean verifyRestApiKey() {
+		 
+		 
+	return	RestAPI.isDisplayed();
+
+	 }
+	 
+	 
+	 public boolean verifyAPPId() {
+		 
+		 
+		 return APPIdTxt.isDisplayed();
+	 }
+	 
+	 
+ public void verifyProjectIcon() throws Exception {
+	 
+		Edit.click();
+
+	 removeimage.click();
+		
+	 producticon.click();
+	 
+     StringSelection filepath = new StringSelection("/home/exe0028/Desktop/axesmethods.png");
+     
+	     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath,null);
+	     
+	Robot robot = new Robot();
+	
+	robot.delay(250);
+	
+	robot.keyPress(KeyEvent.VK_ENTER);
+	
+	robot.keyRelease(KeyEvent.VK_ENTER);
+	
+	robot.keyPress(KeyEvent.VK_CONTROL);
+	
+	robot.keyPress(KeyEvent.VK_V);
+	
+	robot.keyRelease(KeyEvent.VK_V);
+	
+	robot.keyRelease(KeyEvent.VK_CONTROL);
+	
+	robot.keyPress(KeyEvent.VK_ENTER);
+	
+	robot.delay(250);
+	
+	robot.keyRelease(KeyEvent.VK_ENTER);
+	
+	Thread.sleep(4000);
+	
+	JavascriptExecutor jsscript = (JavascriptExecutor)driver;
+
+	jsscript.executeScript("window.scrollTo(0,500)");
+	
+	updateplatform.click();
+
+	 
+ }
+	 
+	public void verifyDefaultSettings() {
+		
+		Edit.click();
+		
+		Askoptinafter.click();
+		
+		fiveseconds.click();
+		
+		optinfrequentshow.click();
+		
+		newsession.click();
+	
+		
+		updateplatform.click();
+		
+		driver.close();
+		
+	} 
+	 
+    public void verifyMaxmimumNotificaionsInputBox(String num) {
+   	 
+   	 
+   	 Maximumnotifications.click();
+   	 
+   	 numeric.sendKeys(num);
+   	 
+   	 update.click();
+   	 
+   	 
+   	 
+    }
+	 
+	 
+    public void verifyRegenerateToken() {
+    	
+    	RegenarateAPI.click();
+    	
+    	
+    }
+    
+    	
+    public void verifyGDPRLink() {
+    	
+    	
+    	GDPR.click();
+    	
+    	JavascriptExecutor jsscript = (JavascriptExecutor)driver;
+
+    	jsscript.executeScript("window.scrollTo(0,1500)");
+    	
+    	
+    }
 }

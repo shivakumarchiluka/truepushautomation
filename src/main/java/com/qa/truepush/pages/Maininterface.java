@@ -52,41 +52,50 @@ public class Maininterface extends TestBase {
 	
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[2]")
+    
      WebElement campaignlink;
 	
 	
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[3]")
+    
      WebElement rss;
 
     
     @FindBy(xpath="//nav[@class='main-nav']/child::a[5]")
+    
      WebElement segments;
     
     
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[6]")
+    
      WebElement templates;
     
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[7]")
+    
      WebElement triggers;
     
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[9]")
+    
      WebElement subscribers;
     
     
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[10]")
+    
      WebElement codeintegration;
     
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[11]")
+    
      WebElement settings;
     
 
     @FindBy(xpath="//nav[@class='main-nav']/child::a[13]")
+    
      WebElement pricing;
     
 

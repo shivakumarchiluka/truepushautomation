@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.PricingTest">
+      <class name="com.truepush.qa.testcases.CodeIntegrationPagetest">
         <methods>
-          <include name="validatePaymentLinkTest"/>
+          <include name="validateCodeTest"/>
+          <include name="setup"/>
           <include name="teardown"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.PricingTest -->
+      </class> <!-- com.truepush.qa.testcases.CodeIntegrationPagetest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -39,7 +39,7 @@ public class TriggerTest extends TestBase{
 	
 	@BeforeMethod
 	
-	public void setup() {
+	public void setup() {     
 
 		initialization();
 				 

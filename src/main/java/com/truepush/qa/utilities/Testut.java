@@ -32,11 +32,11 @@ public class Testut {
 	  public static long IMPLICIT_WAIT=50;
 	  
 	  
-		public static void takeScreenshotAtEndOfTest() throws IOException {
+		public static void takeScreenshot() throws IOException {
 			
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			String currentDir = System.getProperty("user.dir");
-			FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+			String currentDir = System.getProperty("/home/exe0028/Desktop/shiva/Truepushautomation");
+			FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + "screenshot.png"));
 			
 		}
 
