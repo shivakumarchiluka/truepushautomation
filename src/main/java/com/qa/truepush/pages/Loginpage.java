@@ -39,7 +39,7 @@ public class Loginpage extends TestBase{
 	@FindBy(xpath="//button[text()='Send Verification Link']")
 	WebElement SendMail;
 	
-	
+
 	
 	//Initializing the Page Objects:
 	//actions
@@ -51,6 +51,8 @@ public class Loginpage extends TestBase{
 	   LOGIN.click();
 	   return new ProjectPage();
    }
+   
+
 
 
 	

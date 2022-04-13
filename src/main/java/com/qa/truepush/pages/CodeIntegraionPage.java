@@ -1,5 +1,6 @@
 package com.qa.truepush.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,7 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import com.truepush.qa.testbase.TestBase;
 
 public class CodeIntegraionPage extends TestBase {
+	
 
+	@FindBy(xpath = "//h4[text()=\"Complete Setup\"]/following::button[1]")
+	
+	WebElement completesetup;
+	
 	
 	@FindBy(xpath = "//button[text()='Download sw.js']")
 	
@@ -20,7 +26,7 @@ public class CodeIntegraionPage extends TestBase {
 	
 	
 
-	@FindBy(css = "//button[text()='Download sw.js']/following::button[1]")
+	@FindBy(xpath = "//button[text()='Download sw.js']/following::button[1]")
 	
 	WebElement script;
 	
@@ -104,22 +110,64 @@ public class CodeIntegraionPage extends TestBase {
 	
 	
 	
-	public void verifyScript() {
+	public void verifyServiceWorker() {
 		
-		
-		script.click();
+		downloadswkr.click();
 		
 	}
 	
 	
+	public void verifyScripts() {
+		
+		
+		script.click();
+		
+		 addtag.click();
+		 
+		 removetag.click();
+		 
+		 gettag.click();
+		 
+		 
+		
+	}
+
+	
+	public void verifyAMPPage() {
+		
+		
+		amp.click();
+		
+		ampscript.click();
+		
+		 ampwphf.click();
+		
+		 ampwppd.click();
+		 
+		 ampwebpushscript.click();
+		 
+		 ampwidgetstyle.click();
+		 
+			JavascriptExecutor jsexecuter = (JavascriptExecutor)driver;
+
+	        jsexecuter.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+
+		 
+		 ampwidget.click();
+		
+	}
 	
 	
-	
-	
-	
-	
-	
-	
+	public void verifySendCodeToDev(String mail) {
+		
+		
+		checkbox.click();
+		
+		email.sendKeys(mail);
+		
+		sendcode.click();
+		
+	}
 	
 	
 	

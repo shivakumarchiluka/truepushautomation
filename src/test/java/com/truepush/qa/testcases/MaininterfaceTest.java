@@ -2,10 +2,12 @@ package com.truepush.qa.testcases;
 
 
 import org.testng.Assert;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.qa.truepush.pages.CampaignPage;
 import com.qa.truepush.pages.DashboardPage;
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.Maininterface;
@@ -24,6 +26,9 @@ public class MaininterfaceTest  extends TestBase {
 	DashboardPage dashboardpage;
 	
 	Maininterface maininterface;
+	
+	CampaignPage camp;
+	
 
 	public MaininterfaceTest() {
 		
@@ -44,7 +49,7 @@ public class MaininterfaceTest  extends TestBase {
 		
 		 projectpage = new ProjectPage();
 		 
-		 projectpage.clickOnProjectlink();
+		 projectpage.clickonproject();
 
 	     maininterface = new Maininterface();
 	
@@ -55,7 +60,7 @@ public class MaininterfaceTest  extends TestBase {
 
 	@Test(priority = 11)
 	
-	public void verfiyTruepushLogo() {
+	public void validateTruepushLogoTest() {
 		
 		
 	Boolean flag =	maininterface.truepushlogo();
@@ -69,7 +74,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 1)
 	
-	public void verifyCampaignPageLink() {
+	public void validateCampaignPageLinkTest() {
 		
 		maininterface.clickoncampaignlink();
 		
@@ -79,7 +84,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 2)
 	
-	public void verifyRSSPageLink() {
+	public void validateRSSPageLinkTest() {
 	
 		maininterface.clickonrsslink();
 		
@@ -89,7 +94,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 3)
 	
-	public void verifySegmentsPageLink() {
+	public void validateSegmentsPageLinkTest() {
 		
 		maininterface.clickonsegmentslink();
 		
@@ -97,7 +102,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 4)
 	
-	public void verifyTemplatesPageLink() {
+	public void validateTemplatesPageLinkTest() {
 		
 		maininterface.clickontemplateslink();
 		
@@ -106,7 +111,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 5)
 	
-	public void verifyTriggersPageLink() {
+	public void validateTriggersPageLinkTest() {
 		
 		maininterface.clickontriggerslink();
 		
@@ -117,7 +122,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 6)
 	
-	public void verifySubscribersPageLink() {
+	public void valiateSubscribersPageLinkTest() {
 		
 		maininterface.clickonsubscriberslink();
 		
@@ -128,7 +133,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 7)
 	
-	public void verifyCodeIntegrationPageLink() {
+	public void validateCodeIntegrationPageLinkTest() {
 		
 		maininterface.clickoncodeintegrationlink();
 		
@@ -139,7 +144,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 8)
 	
-	public void verifySettingsPageLink() {
+	public void validateSettingsPageLinkTest() {
 		
 		maininterface.clickonsettingslink();
 		
@@ -150,7 +155,7 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 9)
 	
-	public void verifyPricingPageLink() {
+	public void validatePricingPageLinkTest() {
 		
 		maininterface.clickonpricinglink();
 		
@@ -160,18 +165,40 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 10)
 	
-	public void verifyProfileiconPageLink() {
+	public void validateProfileiconPageLinkTest() {
 		
 		maininterface.clickonprofileicon();
 		
 
 	}
 	
+	@Test(priority = 12)
 	
+	public void validatePageTitleTest() {
+		
+		 
+				
+				String title = maininterface.validatePageTilte();
+				
+				Assert.assertEquals(title, "Truepush","dash board page title not matched");
+			} 
+			
+
+	@Test(priority = 13)
 
 	
-	
-	
+	public void validateCampaignButtonTest() {
+		
+		maininterface.verifyCampaignButton();
+		
+		camp = new CampaignPage();
+		
+		camp.createSimpleCampaign("https://amazon.com", "jeff", "bezos");
+		
+//maininterface.verifyCampaignButton("https://amazon.com", "jeff", "bezos");
+
+		
+	}
 	
      @AfterMethod
      

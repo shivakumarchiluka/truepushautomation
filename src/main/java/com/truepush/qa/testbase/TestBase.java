@@ -87,6 +87,24 @@ public class TestBase {
 		driver = eventdriver;
 
 	}
+	
+	
+	public static void initialize() {
+		
+		String browserName = prop.getProperty("browser");
+		 if(browserName.equals("chrome")) {
+			 System.setProperty("webdriver.chrome.driver", "/home/exe0028/Desktop/shiva/chromedriver.exe");
+			 driver = new ChromeDriver();
+
+		 }
+		 
+			driver.manage().timeouts().pageLoadTimeout(Testut.PAGELOAD_TIMEOUT, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(Testut.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get(prop.getProperty("mainurl"));
+		driver.manage().timeouts().pageLoadTimeout(Testut.PAGELOAD_TIMEOUT, TimeUnit.SECONDS);
+	}
+
 		public static void login(String username, String password) throws Exception {
 
 			driver.findElement(By.id("email")).sendKeys(username);

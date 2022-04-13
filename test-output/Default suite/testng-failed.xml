@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.CodeIntegrationPagetest">
+      <class name="com.truepush.qa.testcases.RegistrationPageTest">
         <methods>
-          <include name="validateCodeTest"/>
-          <include name="setup"/>
+          <include name="validateRegistration"/>
           <include name="teardown"/>
+          <include name="validateNewProject"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.CodeIntegrationPagetest -->
+      </class> <!-- com.truepush.qa.testcases.RegistrationPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

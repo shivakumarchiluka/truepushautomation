@@ -51,14 +51,14 @@ public class CampaignpageTest extends TestBase {
  
 		 projectpage = new ProjectPage();
 
-		 projectpage.clickOnProjectlink();
+		 projectpage.clickonproject();
 		 
           maininterface = new Maininterface();
           
-          
-		  campaignpage = new CampaignPage();
-
 			campaignpage =  maininterface.clickoncampaignlink();
+			
+			  campaignpage = new CampaignPage();
+
 
      	}
 	
@@ -79,14 +79,21 @@ public class CampaignpageTest extends TestBase {
 
 	
 	
-        campaignpage.clickoncreatecampaign(Enterurl, Entertitle, Entermessage);	
+        campaignpage.clickoncreatecampaignDTT(Enterurl, Entertitle, Entermessage);	
 		
-      campaignpage.ClickonSendnotification();
 		
 	}
 	
 	
+	@Test(priority = 1)
 	
+	public void validateCampaignButtonTest() {
+		
+		campaignpage.clickOnCampaignButton();
+		
+		campaignpage.createSimpleCampaign("https://microsoft.com","google","sundarpichai");
+		
+	}
 	
 	
 	

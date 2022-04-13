@@ -51,6 +51,18 @@ public class NewProjectPage extends TestBase {
     	PageFactory.initElements(driver, this);
             }
 	
+
+	public void createNewProject(String name) {
+		
+		
+		
+		projectname.sendKeys(name);
+		
+		Webimg.click();
+		
+		configureweb.click();
+		
+	}
 	
 	
 }

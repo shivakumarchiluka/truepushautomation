@@ -55,19 +55,43 @@ public class CodeIntegrationPagetest extends TestBase{
 	}
 	
 	
+	
+	@Test
+	
+	public void validateServiceWorkerTest() {
+		
+		
+		code.verifyServiceWorker();
+		
+	}
+	
 	@Test
 	
 	public void validateCodeTest() {
 		
-		code.verifyScript();
+		code.verifyScripts();
 		
 	}
 	
 	
+	@Test
+	
+	public void validateAMPPageTest() {
+		
+		
+		code.verifyAMPPage();
+		
+	}
 	
 	
+	@Test
 	
-	
+	public void validateSendCodeTest() {
+		
+		
+code.verifySendCodeToDev("truepush1234@gmail.com");	
+
+	}
 	
 	
 	

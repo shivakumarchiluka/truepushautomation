@@ -16,16 +16,23 @@ public class ProjectPage extends TestBase{
 
 	WebElement project;
 	
+	
 	@FindBy(xpath="//a[@title='solarsystem']")
+	
 	WebElement projectId_02;
 	
+	
 	@FindBy(xpath="//section[@class='component-wrapper']/descendant::a[2]")
+	
 	WebElement users;
 	
-	@FindBy(xpath="//section[@class='component-wrapper']/descendant::button[5]")
+	@FindBy(xpath="//button[text() = \"New Project\"]")
+	
 	WebElement Newproject;
 	
+	
 	@FindBy(css="button.profile-icon")
+	
 	WebElement  profile;
 	
 	
@@ -57,7 +64,7 @@ public class ProjectPage extends TestBase{
 		return new UsersPage();
 	}
 	
-	public NewProjectPage clickOnNewProjectlink () {
+	public NewProjectPage clickOnNewProjectButton () {
 		
 		Newproject.click();
 		

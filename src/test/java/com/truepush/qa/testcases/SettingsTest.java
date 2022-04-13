@@ -57,7 +57,7 @@ public class SettingsTest extends TestBase {
 
 
 	
-	@Test(priority = 8)
+	@Test(priority = 1)
 	
 	public void validateRestAPIKeyTest() {
 		
@@ -69,7 +69,7 @@ public class SettingsTest extends TestBase {
 	}
 	
 	
-     @Test(priority = 9)
+     @Test(priority = 2)
 	
 	public void validateAPPIdTest() {
 		
@@ -78,67 +78,23 @@ public class SettingsTest extends TestBase {
 		
 		Assert.assertTrue(flag);
 		
-	}
-	
-	@Test(priority = 3)
-	public void validateProjecticonTest() throws Exception {
-		
-		
-		settings.verifyProjectIcon();
-		
-	}
-	
-	
-	@Test(priority = 2)
-	
-	public void validateDocumentationLinkTest() {
-		
-		
-		settings.verifyDocumentationLink();
-		
-		
-	}
-	
-	@Test(priority = 1)
-		
-	public void validateSettingsPageTest() {
-		
-		settings.editSettings("tinnier-chests.000webhostapp.com/");
-		
-	}
-	
+     }
 
-	
-	@Test(priority = 4)
-	
-	public void validateOptinStyleTest() {
-		
-		settings.verifyEditOptinStyle();
-		
-	}
-	
-	
-	@Test(priority = 5)
-	public void validateOptinContentTest() {
-		
-		
-		settings.verifyOptinContent("Allow updates from truepush", "You can turn it off whenever you require",
-				"never", "allow now");
-		
-	}
+     
+     
 
-	@Test(priority = 7)
-	public void validateWelcomenotificationTest() {
-		
-		
-	settings.verifyWelcomeNotification("welcome", "thank you for subscribing");	
-		
-		
-		
-	}
-	
+ 	@Test(priority = 3)
+ 	
+ 	public void validateRegnerateTokenTest() {
+ 		
+ 		settings.verifyRegenerateToken();
+ 		
+ 	}
+ 		
+     
+     
 
-     @Test(priority = 10)
+     @Test(priority = 4)
      
      public void validateMaxmimumNotificaionsInputBoxTest() {
     	 
@@ -147,22 +103,69 @@ public class SettingsTest extends TestBase {
     	 
     	 
      }
+     
+     
+ 	@Test(priority = 5)
 	
-
-	@Test(priority = 11)
+ 	public void validateSettingsPageTest() {
+ 		
+ 		settings.editSettings("tinnier-chests.000webhostapp.com/");
+ 		
+ 	}
+ 	
+ 	
 	
-	public void validateRegnerateTokenTest() {
+	@Test(priority = 6)
+	
+	public void validateDocumentationLinkTest() {
 		
-		settings.verifyRegenerateToken();
+		
+		settings.verifyDocumentationLink();
+		
+		
+	}
+
+
+	@Test(priority = 7)
+	public void validateProjecticonTest() throws Exception {
+		
+		
+		settings.verifyProjectIcon();
 		
 	}
 	
 	
+	
+	@Test(priority = 8)
+	
+	public void validateOptinStyleTest() {
+		
+		settings.verifyEditOptinStyle();
+		
+	}
+	
+	
+	@Test(priority = 9)
+	public void validateOptinContentTest() {
+		
+		
+		settings.verifyOptinContent("Allow updates from truepush", "You can turn it off whenever you require",
+				"never", "allow now");
+		
+	}
 
+	@Test(priority = 10)
+	public void validateWelcomenotificationTest() {
+		
+		
+	settings.verifyWelcomeNotification("welcome", "thank you for subscribing");	
+		
+		
+		
+	}
 
-
-
-      @Test(priority = 6)
+	
+      @Test(priority = 11)
       public void validateDefaultSettingsTest() {
 	
 	
@@ -171,7 +174,7 @@ public class SettingsTest extends TestBase {
           }
 
       
-      @Test
+      @Test(priority = 12)
       
       public void validateGDPRTest() {
     	  

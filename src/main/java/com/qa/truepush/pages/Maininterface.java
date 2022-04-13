@@ -1,6 +1,7 @@
 package com.qa.truepush.pages;
 
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -32,7 +33,7 @@ public class Maininterface extends TestBase {
 	WebElement createnewproject;
 	
 	
-	@FindBy(xpath = "//div[@class=\"project-dropdown\"]/following::button[1]")
+	@FindBy(xpath = "//div[@class=\"project-dropdown\"]/following::button[2]")
 	
 	WebElement createcampaign;
 	
@@ -51,7 +52,7 @@ public class Maininterface extends TestBase {
 	WebElement freelogo;
 	
 
-    @FindBy(xpath="//nav[@class='main-nav']/child::a[2]")
+    @FindBy(xpath = "//nav[@class='main-nav']/child::a[2]")
     
      WebElement campaignlink;
 	
@@ -119,19 +120,25 @@ public class Maininterface extends TestBase {
 		
 		return driver.getTitle();
 		
+		
 	}
 	
 	public boolean truepushlogo() {
 		
 		
 		 return Logo.isDisplayed();
+		 
 		
                   	}
 	
 
 	  public CampaignPage clickoncampaignlink(){
 		  
-	
+		  WebDriverWait wait = new WebDriverWait(driver,10);
+		  
+		  wait.until(ExpectedConditions.elementToBeClickable(campaignlink));
+     
+		  campaignlink.click();
 		
 		  return new CampaignPage();
 		  
@@ -222,9 +229,9 @@ public class Maininterface extends TestBase {
 	    public  FeedbackPage clickonfeedbacklink() {
 	    	
 		  
-		 WebDriverWait wait = new WebDriverWait(driver,10);
+     WebDriverWait wait = new WebDriverWait(driver,10);
 	
-wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text() =\"Feedback\"]"))).click();
+     wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text() =\"Feedback\"]"))).click();
 
 		    return new FeedbackPage();
 		  
@@ -235,8 +242,26 @@ wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h6[text() =\"Feed
   	 profileicon.click();
   	
   	 return new ProfilePage();
+  	 
    }
 		
-	
+	public boolean verifyStatusOfProject() {
+		
+	return	freelogo.isDisplayed();
+		
+	}
 
+	
+	public void verifyCampaignButton() {
+		
+		createcampaign.click();
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 }

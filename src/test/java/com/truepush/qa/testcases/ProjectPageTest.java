@@ -45,7 +45,7 @@ public class ProjectPageTest extends TestBase {
 
 	@Test(priority = 4)
 	public void VerifyNewProject() {
-		projectpage.clickOnNewProjectlink();
+		projectpage.clickOnNewProjectButton();
 
 		System.out.println("new project page link has been clicked");
 

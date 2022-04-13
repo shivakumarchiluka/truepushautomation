@@ -1,6 +1,7 @@
 package com.qa.truepush.pages;
 
 
+
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
@@ -272,32 +273,50 @@ public class SettingsPage extends TestBase{
 		readdocumentation.click();
 		
         Set<String> windowhandles = driver.getWindowHandles();
+        
+        
 		System.out.print(windowhandles);
+		
+		
 	    Iterator<String>iterator = windowhandles.iterator();
+	    
+	    
 	    String parentwindow = iterator.next();
+	    
+	    
 	    System.out.println(parentwindow);
+	    
+	    
 	    String childwindow = iterator.next();
+	    
+	    
 	    System.out.println(childwindow);
+	    
 	    
 	    driver.switchTo().window(childwindow);
 	    
+	    
+	    
 	    exit.click();
+	    
 	    
 	    Notallow.click();
 	    
+	    
 	    driver.close();
+	    
 	    
 	    driver.switchTo().window(parentwindow);
 	    
+	    
 	   Enablesafaribrowser.click();
 	   
+	   
 	   driver.close();
+	   
 	}
 		
 	
-
-
-
 
 	public void verifyEditOptinStyle() {
 		
@@ -417,7 +436,7 @@ public class SettingsPage extends TestBase{
 	 
 	public void verifyDefaultSettings() {
 		
-		Edit.click();
+		 Edit.click();
 		
 		Askoptinafter.click();
 		
@@ -465,6 +484,61 @@ public class SettingsPage extends TestBase{
 
     	jsscript.executeScript("window.scrollTo(0,1500)");
     	
+    }
+    	
+    	
+    	
+    	public void createNewProject(String weburl,String title,String message) throws  Exception {
+    	
+    	
+    		Enterwebsiteurl.sendKeys(weburl);
+    		
+    		 producticon.click();
+    		 
+    	     StringSelection filepath = new StringSelection("/home/exe0028/Desktop/axesmethods.png");
+    	     
+    		     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filepath,null);
+    		     
+    		     Robot robot = new Robot();    		
+    		     
+    		robot.delay(250);
+    		
+    		robot.keyPress(KeyEvent.VK_ENTER);
+    		
+    		robot.keyRelease(KeyEvent.VK_ENTER);
+    		
+    		robot.keyPress(KeyEvent.VK_CONTROL);
+    		
+    		robot.keyPress(KeyEvent.VK_V);
+    		
+    		robot.keyRelease(KeyEvent.VK_V);
+    		
+    		robot.keyRelease(KeyEvent.VK_CONTROL);
+    		
+    		robot.keyPress(KeyEvent.VK_ENTER);
+    		
+    		robot.delay(250);
+    		
+    		robot.keyRelease(KeyEvent.VK_ENTER);
+    		
+    		Thread.sleep(4000);
+    		
+           
+   		 welcomenotification.click();
+		 
+		 
+ 		createwelcomenotification.click();
+ 		 
+ 		
+ 		           entertitle.sendKeys(title);
+ 		 
+ 		           
+ 		 entermessage.sendKeys(message);
+ 		 
+ 		 
+ 	     	 userinteraction.click();
+ 	     	 
+ 	               	 savenotification.click();
     	
     }
 }
