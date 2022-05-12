@@ -302,17 +302,14 @@ public class SettingsPage extends TestBase{
 	    
 	    Notallow.click();
 	    
-	    
-	    driver.close();
-	    
-	    
+       driver.close();
+
 	    driver.switchTo().window(parentwindow);
 	    
 	    
 	   Enablesafaribrowser.click();
 	   
 	   
-	   driver.close();
 	   
 	}
 		
@@ -372,6 +369,22 @@ public class SettingsPage extends TestBase{
 	               	 savenotification.click();
 		 
 	 }
+	 
+	 
+	 public void clickWelcomeNotification(String title,String message) {
+    
+		 
+		 
+         entertitle.sendKeys(title);
+		 
+         
+entermessage.sendKeys(message);
+
+
+	 userinteraction.click();
+	 }
+	 
+	 
 	 
 	 
 	 public boolean verifyRestApiKey() {
@@ -449,7 +462,6 @@ public class SettingsPage extends TestBase{
 		
 		updateplatform.click();
 		
-		driver.close();
 		
 	} 
 	 

@@ -1,6 +1,7 @@
 package com.truepush.qa.testcases;
 
 import org.testng.annotations.AfterMethod;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,6 +10,10 @@ import com.qa.truepush.pages.ProjectPage;
 import com.qa.truepush.pages.UsersPage;
 import com.truepush.qa.testbase.TestBase;
 
+
+
+
+  //  @Listeners(TestngListener.class)
 public class UsersTest extends TestBase{
 
 	
@@ -39,7 +44,7 @@ public class UsersTest extends TestBase{
  
 		 projectpage = new ProjectPage();
 		 
-		 userspage = projectpage.clickOnUserslink();
+	//	 userspage = projectpage.clickOnUserslink();
 		 
 		 userspage = new UsersPage();
 		 
@@ -52,7 +57,7 @@ public class UsersTest extends TestBase{
 	    public void validateAddNewUsersTest() {
 	    	
 	    	
-	    	userspage.addNewUser("sahara", "waynews8899@gmail.com", "chiluka@19997");
+	    	userspage.addNewUser("waynews8899@gmail.com", "chiluka@19997");
 	    	
 	    	userspage.addNewUser();
 	    	
@@ -66,6 +71,10 @@ public class UsersTest extends TestBase{
 		driver.close();
 	}
 	
-	
+	//<parameter name="url" value="tinnier-chests.000webhostapp.com/"></parameter>
+
+
+	//<methods> <include name="validateSettingsPage"></include>
+
 	
 }

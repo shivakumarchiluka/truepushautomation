@@ -2,6 +2,7 @@ package com.truepush.qa.testcases;
 
 import org.testng.annotations.AfterMethod;
 
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,6 +27,8 @@ public class TriggerTest extends TestBase{
 	TriggersPage trigger;
 	
 	 String sheetName = "sheet1";
+	 
+	 String SheetName = "sheet2";
 
 	
 	public TriggerTest() {
@@ -49,7 +52,7 @@ public class TriggerTest extends TestBase{
  
 		 projectpage = new ProjectPage();
 
-		 projectpage.clickonproject();
+		 projectpage.clickOnProjectlink();
 		
          maininterface = new Maininterface();
 
@@ -75,7 +78,9 @@ public class TriggerTest extends TestBase{
 	
 	@DataProvider
 	public Object[][] triggertestdata() {
+		
 		Object data[][]=Testut.getTriggerTestData(sheetName);
+		
 		return data;
 	}
 	
@@ -85,8 +90,10 @@ public class TriggerTest extends TestBase{
 		
 		trigger.createTriggerDDT(TriggerName, TriggerNotes, HH, MM);
 		
-		
 	}
+		
+
+	
 	
 		@Test
 	

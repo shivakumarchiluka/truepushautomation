@@ -99,7 +99,7 @@ public class TriggersPage extends TestBase{
 	WebElement submitnotification;
 	
 	
-	@FindBy(xpath = "//div[@class='table-responsive']/descendant::label[2]")
+	@FindBy(xpath = "//div[@class='table-responsive']/descendant::label[1]")
 	
 	WebElement activetrigger;
 	

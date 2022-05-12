@@ -1,8 +1,11 @@
 package com.qa.truepush.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.truepush.qa.testbase.TestBase;
 
@@ -63,6 +66,16 @@ public class TemplatesPage extends TestBase{
 	
 	
 	
+    @FindBy(xpath = "//table[@class=\"table\"]/descendant::button[1]")
+    
+    WebElement edit;
+	
+    
+    @FindBy(xpath = "//div[@class=\"container-fluid\"]/descendant::button[6]")
+    
+    WebElement updatetemplate;
+    
+	
 	public TemplatesPage() {
 		
 		PageFactory.initElements(driver, this);
@@ -70,13 +83,32 @@ public class TemplatesPage extends TestBase{
 	}
 	
 	
-	public void createTemplate(String TemplateName ,String LandingPageURL,String Title,String Message) {
+	public void createTemplate(String Templatename ,String LandingpageURL,String title,String message) {
 		
 		
 		
 		createtemplate.click();
 		
-		entertemplatename.sendKeys(TemplateName);
+		entertemplatename.sendKeys(Templatename);
+		
+		enterlandingpageurl.sendKeys(LandingpageURL);
+		
+		entertitle.sendKeys(title);
+		
+		entermessage.sendKeys(message);
+		
+		submittemplate.click();
+		
+		
+	}
+	
+	
+	public void createTemplateDTT(String TemplateName ,String LandingPageURL,String Title,String Message) {
+		
+		
+		addnewtemplate.click();
+		
+	entertemplatename.sendKeys(TemplateName);
 		
 		enterlandingpageurl.sendKeys(LandingPageURL);
 		
@@ -85,17 +117,36 @@ public class TemplatesPage extends TestBase{
 		entermessage.sendKeys(Message);
 		
 		submittemplate.click();
+	
+	}
+	
+	
+	public void templateButton() {
+		
+		
+WebDriverWait wait = new WebDriverWait(driver,10);
+		
+	WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[@class=\"table\"]/descendant::button[1]")));
+		
+	
+	ele.click();
 		
 	}
 	
 	
-	public void createTemplateDTT() {
+  public void editTemplate() {
+	  
+	/*WebDriverWait wait = new WebDriverWait(driver,10);
 		
-		
-		addnewtemplate.click();
-		
-	
-		
-	}
-	
+		WebElement ele = wait.until(ExpectedConditions.elementToBeClickable
+				
+				(By.xpath("//div[@class=\"container-fluid\"]/descendant::button[6]")));
+				
+					 ele.click(); 
+*/
+			
+		updatetemplate.click();
+	  
+  }
+
 }

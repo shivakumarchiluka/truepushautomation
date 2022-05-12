@@ -49,7 +49,7 @@ public class RSSTest extends TestBase{
  
 		 projectpage = new ProjectPage();
 
-		 projectpage.clickonproject();
+		 projectpage.clickOnProjectlink();
 		 
           maininterface = new Maininterface();
           
@@ -64,7 +64,7 @@ public class RSSTest extends TestBase{
 	
 	@Test(priority = 1)
 	
-	public void createNewRSS()  {
+	public void createNewRSSTest()  {
 		
 		rsspage.createrssfeedbutton();
 		  
@@ -79,6 +79,7 @@ public class RSSTest extends TestBase{
 	
 	@DataProvider
 	public Object[][] RSStestdata() {
+		
 		Object data[][]=Testut.getRSSTestData(sheetName);
 		return data;
 	}
@@ -88,7 +89,7 @@ public class RSSTest extends TestBase{
 	
 	@Test(priority = 2 ,dataProvider = "RSStestdata")
 	
-	public void addNewRSSFeed(String RSSname ,String RSSlink , CharSequence[] DelayNotification) throws Exception {
+	public void addNewRSSFeedTest(String RSSname ,String RSSlink , CharSequence[] DelayNotification) throws Exception {
 		
     rsspage.addNewRSS();
  
@@ -101,8 +102,8 @@ rsspage.clickOnAddNewRSSFeed(RSSname, RSSlink, DelayNotification);
 	
 	
 	
-	  @Test	
-		public void validateRSSfeeds() {
+	  @Test	(priority = 3)
+		public void validateRSSfeedsTest() {
 		
  rsspage.clicklabel1Activebutton();
 					
@@ -131,6 +132,18 @@ rsspage.clickOnAddNewRSSFeed(RSSname, RSSlink, DelayNotification);
 	                         		 rsspage.clicklabel1Activebutton();
 				
 			 rsspage.clicklabel2Activebutton();
+			 
+			 rsspage.clicklabel3Activebutton();
+			 
+             rsspage.clicklabel4Activebutton();
+
+rsspage.clicklabel5Activebutton();
+
+
+rsspage.clickOnNextPage();
+
+                 		 rsspage.clicklabel1Activebutton();
+	
 		
 	}
 

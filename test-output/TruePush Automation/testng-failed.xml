@@ -4,15 +4,145 @@
   <listeners>
     <listener class-name="com.qa.extentreportlistener.ExtentreporterNg"/>
   </listeners>
-  <test thread-count="5" name="Truepush SegmentPage(failed)">
+  <test thread-count="5" name="Truepush Project(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.SegmentsTest">
+      <class name="com.truepush.qa.testcases.ProjectPageTest">
+        <methods>
+          <include name="validateCloneProjectTest"/>
+          <include name="setup"/>
+          <include name="validateTokenInfoTest"/>
+          <include name="teardown"/>
+          <include name="validatePlatformTest"/>
+          <include name="endReport"/>
+          <include name="validateDeleteProjectTest"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.ProjectPageTest -->
+    </classes>
+  </test> <!-- Truepush Project(failed) -->
+  <test thread-count="5" name="Truepush New Project(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.NewProjectPageTest">
+        <methods>
+          <include name="setup"/>
+          <include name="endReport"/>
+          <include name="validateCodeIntegrationSetUpTEst"/>
+          <include name="setExtent"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.NewProjectPageTest -->
+    </classes>
+  </test> <!-- Truepush New Project(failed) -->
+  <test thread-count="5" name="Truepush Users(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.UsersTest">
+        <methods>
+          <include name="endReport"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="validateAddNewUsersTest"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.UsersTest -->
+    </classes>
+  </test> <!-- Truepush Users(failed) -->
+  <test thread-count="5" name="Truepush Maininterface(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.MaininterfaceTest">
+        <methods>
+          <include name="validateProfileIconTest"/>
+          <include name="validateSwichToProject"/>
+          <include name="validateMenuButton"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="validateDriftChat"/>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.MaininterfaceTest -->
+    </classes>
+  </test> <!-- Truepush Maininterface(failed) -->
+  <test thread-count="5" name="Truepush Campaigns(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.CampaignpageTest">
+        <methods>
+          <include name="setup"/>
+          <include name="validateAdvanceCampaignTest"/>
+          <include name="teardown"/>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.CampaignpageTest -->
+    </classes>
+  </test> <!-- Truepush Campaigns(failed) -->
+  <test thread-count="5" name="Truepush RSS to Push(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.RSSTest">
         <methods>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="validateSegmentCreationDDTTest" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="validateRSSfeedsTest"/>
+          <include name="setExtent"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.SegmentsTest -->
+      </class> <!-- com.truepush.qa.testcases.RSSTest -->
     </classes>
-  </test> <!-- Truepush SegmentPage(failed) -->
+  </test> <!-- Truepush RSS to Push(failed) -->
+  <test thread-count="5" name="Truepush Templates(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.TemplateTest">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="endReport"/>
+          <include name="validateEditTemplateTest"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.TemplateTest -->
+    </classes>
+  </test> <!-- Truepush Templates(failed) -->
+  <test thread-count="5" name="Truepush Triggers(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.TriggerTest">
+        <methods>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="editTriggerTest"/>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.TriggerTest -->
+    </classes>
+  </test> <!-- Truepush Triggers(failed) -->
+  <test thread-count="5" name="Truepush Code Integration(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.CodeIntegrationPagetest">
+        <methods>
+          <include name="setup"/>
+          <include name="teardown"/>
+          <include name="endReport"/>
+          <include name="validateSendCodeTest"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.CodeIntegrationPagetest -->
+    </classes>
+  </test> <!-- Truepush Code Integration(failed) -->
+  <test thread-count="5" name="Truepush Settings(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.SettingsTest">
+        <methods>
+          <include name="validateProjecticonTest"/>
+          <include name="setup"/>
+          <include name="validateDefaultSettingsTest"/>
+          <include name="validateDocumentationLinkTest"/>
+          <include name="teardown"/>
+          <include name="endReport"/>
+          <include name="validateOptinStyleTest"/>
+          <include name="validateWelcomenotificationTest"/>
+          <include name="validateOptinContentTest"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.SettingsTest -->
+    </classes>
+  </test> <!-- Truepush Settings(failed) -->
 </suite> <!-- Failed suite [TruePush Automation] -->

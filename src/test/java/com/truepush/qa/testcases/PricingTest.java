@@ -47,7 +47,7 @@ public class PricingTest extends TestBase{
 
 		 projectpage = new ProjectPage();
 
-		         projectpage.clickonproject();
+		         projectpage.clickOnProjectlink();
 		 
          maininterface = new Maininterface();
          

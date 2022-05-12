@@ -1,5 +1,6 @@
 package com.qa.truepush.pages;
 
+
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,11 @@ public class Maininterface extends TestBase {
 	WebElement searchproject;
 	
 	
+	@FindBy(xpath = "//ul[@class = \"ng-star-inserted\"]/descendant::a[2]")
+	
+	WebElement clickonproject;
+	
+	
 	@FindBy(css = "button[title=\"Create New Project\"]")
 	
 	WebElement createnewproject;
@@ -40,12 +46,8 @@ public class Maininterface extends TestBase {
 	
 	@FindBy(xpath = "//div[@class=\"project-dropdown\"]/following::button[3]")
 	
-	WebElement profileicon;
+	WebElement profiletoproject;
 	
-	
-	@FindBy(xpath = "//div[@class=\"project-dropdown\"]/following::button[4]")
-	
-	WebElement menu;
 	
 	@FindBy(xpath = "//div[contains(@class, \"status \")]")
 	
@@ -104,7 +106,76 @@ public class Maininterface extends TestBase {
     @FindBy(xpath = "//h6[text() =\"Feedback\"]")
     
     public  static  WebElement  feedback;
+    
+    
+    
+	@FindBy(xpath="//button[@class=\"profile-icon\"]")
+	
+	WebElement  profileicon;
+	
+	
+	@FindBy(xpath = "//button[@class =\"profile-icon\"]/following::a[1]")
+	
+	
+	WebElement userprofile;
+	
+	
+	@FindBy(name = "Name")
+	
+	
+	WebElement entername;
+	
+	
+	@FindBy(xpath = "//span[contains(@class, \"checkbox\")]")
+	
+	
+	WebElement updatepassword;
+	
+	
+	@FindBy(name = "currentpassword")
+	
+	
+	WebElement currentpassword;
+	
+	
+	
+	@FindBy(name = "password1")
+	
+	
+	WebElement newpassword;
+	
+	
+	@FindBy(name = "password2")
+	
+	
+	WebElement retypenewpassword;
+	
+	
+	@FindBy(xpath = "//button[@type=\"submit\"]")
+	
+	
+	WebElement savechanges;
+	
+	
+	@FindBy(css = "a[href=\"/bill\"]")
+	
+	
+	WebElement billing;
+	
+	
+	@FindBy(css = "//div[@class=\"container-fluid\"]/preceding::a[1]")
+	
+	
+	WebElement logout;
+	
+	
+	@FindBy(id = "driftChat")
+	
+	
+	WebElement chatbutton;
 
+	
+	
     
     public Maininterface() {
     	
@@ -132,12 +203,16 @@ public class Maininterface extends TestBase {
                   	}
 	
 
-	  public CampaignPage clickoncampaignlink(){
+	  public CampaignPage clickoncampaignlink() throws Throwable{
 		  
-		  WebDriverWait wait = new WebDriverWait(driver,10);
+	/*	 WebDriverWait wait = new WebDriverWait(driver,10);
 		  
-		  wait.until(ExpectedConditions.elementToBeClickable(campaignlink));
+		WebElement ele =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//nav[@class='main-nav']/child::a[2]")));
+		
+		ele.click(); */
      
+		  Thread.sleep(2000);
+		  
 		  campaignlink.click();
 		
 		  return new CampaignPage();
@@ -237,15 +312,10 @@ public class Maininterface extends TestBase {
 		  
 	  }	  
 	  
-   public ProfilePage clickonprofileicon() {
-  	 
-  	 profileicon.click();
-  	
-  	 return new ProfilePage();
-  	 
-   }
+
 		
 	public boolean verifyStatusOfProject() {
+		
 		
 	return	freelogo.isDisplayed();
 		
@@ -254,14 +324,76 @@ public class Maininterface extends TestBase {
 	
 	public void verifyCampaignButton() {
 		
+		
 		createcampaign.click();
 		
 		
 	}
 	
 	
+	public void verifyProfileIcon(String profilename,String currentpas,String newpass) {
+		
+		profileicon.click();
+		
+		userprofile.click();
+		
+		entername.clear();
+		
+		entername.sendKeys(profilename);
+		
+		updatepassword.click();
+		
+		currentpassword.sendKeys(currentpas);
+		
+		newpassword.sendKeys(newpass);
+		
+		retypenewpassword.sendKeys(newpass);
+		
+		savechanges.click();
+		
+	}
+	
+	public void verfiyProfileIcon() {
+		
+		profileicon.click();
+		
+		billing.click();
+		
+		logout.click();
+		
+		
+	}
 	
 	
+	public void verfiyDriftChat() {
+		
+		chatbutton.click();
+		
+	}
+	
+		
+		
+		public ProjectPage verfiyMenuButton() {
+			
+			profiletoproject.click();
+			
+			return new ProjectPage();
+			
+	}
+		
+		
+		public void verifySwichToProject(String name) {
+			
+			switchtoanotherproject.click();
+			
+		//	searchproject.sendKeys(name);
+			
+		//	clickonproject.click();
+			
+			createnewproject.click();
+		}
+		
+		
 	
 	
 }

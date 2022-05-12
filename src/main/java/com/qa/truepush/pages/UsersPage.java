@@ -25,16 +25,19 @@ public class UsersPage extends TestBase{
 	WebElement email;
     
 	
-    @FindBy(css = "#inlineFormInputGroup")
+    @FindBy(xpath = "//input[@name = \"password\"]")
 	
 	WebElement  password;
 	
 	
      @FindBy(xpath = "//label[text()='User Access']/following::span[1]")
+     
+     
 	WebElement useraccess;
 	
      
      @FindBy(xpath = "//label[text()='User Access']/following::span[1]/following::li[1]")
+     
      
      WebElement selectall;
 	
@@ -62,9 +65,9 @@ public class UsersPage extends TestBase{
     }
     
     
-    public void addNewUser(String usernme, String eml,String pass ) {
+    public void addNewUser( String eml,String pass ) {
     	
-    	username.sendKeys(usernme);
+    //	username.sendKeys(usernme);
     	
     	email.sendKeys(eml);
     	

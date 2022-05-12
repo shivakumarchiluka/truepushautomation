@@ -49,7 +49,7 @@ public class RegistrationPageTest extends TestBase {
 	public void validateRegistration() {
 		
 		
-  register.verifyRegistration("airindia", "bhagirathiriver@outlook.com", "chiluka@1997");	
+  register.verifyRegistration("airindia", "broadband@outlook.com", "chiluka@1997");	
   
   
 	}

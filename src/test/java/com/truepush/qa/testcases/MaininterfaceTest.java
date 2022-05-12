@@ -1,10 +1,13 @@
 package com.truepush.qa.testcases;
 
 
-import org.testng.Assert;
+import java.awt.AWTException;
+import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.CampaignPage;
@@ -12,8 +15,12 @@ import com.qa.truepush.pages.DashboardPage;
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.ProjectPage;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
+
+@Listeners(com.qa.testlisteners.Testnglistener.class)
 
 public class MaininterfaceTest  extends TestBase {
 
@@ -30,6 +37,8 @@ public class MaininterfaceTest  extends TestBase {
 	CampaignPage camp;
 	
 
+	
+
 	public MaininterfaceTest() {
 		
 		super();
@@ -37,19 +46,25 @@ public class MaininterfaceTest  extends TestBase {
 	}
 	
 	
+
+	
+	
 	@BeforeMethod
 	
 	public void setup(){
-
+		
 		initialization();
-				
+	
+          
+		report = new ExtentReports("/home/exe0028/Desktop/shiva/Truepushautomation/report/report.html", true);
+			
 		LoginPage = new Loginpage();
 		
 		projectpage = LoginPage.Validatelogin(prop.getProperty("email"), prop.getProperty("password"));
 		
 		 projectpage = new ProjectPage();
-		 
-		 projectpage.clickonproject();
+		 		 
+		 projectpage.clickOnProjectlink();
 
 	     maininterface = new Maininterface();
 	
@@ -57,26 +72,19 @@ public class MaininterfaceTest  extends TestBase {
 	
 	
 	
-
-	@Test(priority = 11)
-	
-	public void validateTruepushLogoTest() {
-		
-		
-	Boolean flag =	maininterface.truepushlogo();
-	
-	
-	Assert.assertTrue(flag);
-	
-			}
-	
-	
 	
 	@Test(priority = 1)
 	
-	public void validateCampaignPageLinkTest() {
+	public void validateCampaignPageLinkTest() throws Throwable {
+		
+		test = report.startTest("validateCampaignPageLinkTest");
+		
+		test.log(LogStatus.INFO,  test.addScreenCapture(takeScreenShot(driver))+"execution has been started");
 		
 		maininterface.clickoncampaignlink();
+		
+	//	test.log(LogStatus.PASS, test.addScreenCapture(takeScreenShot(driver))+"test has been successfully executed");
+
 		
 	}
 	
@@ -165,9 +173,11 @@ public class MaininterfaceTest  extends TestBase {
 	
 	@Test(priority = 10)
 	
-	public void validateProfileiconPageLinkTest() {
+	public void validateProfileiconPageLinkTest() throws InterruptedException {
 		
-		maininterface.clickonprofileicon();
+		Thread.sleep(2000);
+		
+		maininterface.verifyProfileIcon("icon", "chiluk@1997", "chiluk@1997");
 		
 
 	}
@@ -187,7 +197,7 @@ public class MaininterfaceTest  extends TestBase {
 	@Test(priority = 13)
 
 	
-	public void validateCampaignButtonTest() {
+	public void validateCampaignButtonTest() throws AWTException {
 		
 		maininterface.verifyCampaignButton();
 		
@@ -196,20 +206,60 @@ public class MaininterfaceTest  extends TestBase {
 		camp.createSimpleCampaign("https://amazon.com", "jeff", "bezos");
 		
 //maininterface.verifyCampaignButton("https://amazon.com", "jeff", "bezos");
-
 		
 	}
+
+		@Test(priority = 14)
+		
+		public void validateProfileIconTest() throws InterruptedException {
+			
+			Thread.sleep(2000);
+			
+			maininterface.verfiyProfileIcon();
+			
+			
+		}
+		
+		@Test(priority = 15)
+
+		public void validateDriftChat() {
+			
+			maininterface.verfiyDriftChat();
+		}
+		
+			
+		@Test(priority = 16)
+
+			public void validateMenuButton() {
+				
+				maininterface.verfiyMenuButton();
+				
+		}
+			
+		@Test(priority = 17)
+
+			public void validateSwichToProject() {
+			
+			maininterface.verifySwichToProject("clone");
+				
+			
+			}
+			
+	
 	
      @AfterMethod
      
-     public void teardown() {
-    	 
+     public void teardown(){
+    	
+    
     	 driver.close();
     	 
+    	 report.endTest(test);
+    	 
+    	 report.flush();
     	 
      }
-
-
+ 
 		
 		  /*@Test
 

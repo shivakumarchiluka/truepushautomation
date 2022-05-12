@@ -1,5 +1,9 @@
 package com.truepush.qa.testcases;
 
+import java.awt.AWTException;
+import java.io.IOException;
+
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 
@@ -41,7 +45,7 @@ public class CampaignpageTest extends TestBase {
 	
 	@BeforeMethod
 	
-	public void setup()  {
+	public void setup() throws Throwable   {
 
 		initialization();
 				 
@@ -51,7 +55,7 @@ public class CampaignpageTest extends TestBase {
  
 		 projectpage = new ProjectPage();
 
-		 projectpage.clickonproject();
+		 projectpage.clickOnProjectlink();
 		 
           maininterface = new Maininterface();
           
@@ -66,28 +70,41 @@ public class CampaignpageTest extends TestBase {
 	
 	
 	@DataProvider
-	public Object[][] campaigntestdata() {
+	
+	public Object[][] campaigntestData() {
+		
 		Object data[][]=Testut.getCampaignTestData(sheetName);
+		
 		return data;
 		
 	}
 	
 	
 	
-	@Test(dataProvider = "campaigntestdata")
+	@Test(priority = 0 ,dataProvider = "campaigntestData")
+	
+	public void validateCampaignPage(String Enterurl, String Entertitle, String Entermessage) {
+
+		
+        campaignpage.clickoncreatecampaignDTT(Enterurl, Entertitle, Entermessage);
+	}
+	
+	
+	/*@Test(dataProvider = "campaigntestdata")
+	
 	public void validateCampaignPage(String Enterurl, String Entertitle, String Entermessage) {
 
 	
 	
-        campaignpage.clickoncreatecampaignDTT(Enterurl, Entertitle, Entermessage);	
+        campaignpage.clickoncreatecampaignDTT(Enterurl, Entertitle, Entermessage);}	*/
 		
 		
-	}
+	
 	
 	
 	@Test(priority = 1)
 	
-	public void validateCampaignButtonTest() {
+	public void validateCampaignTest() throws AWTException {
 		
 		campaignpage.clickOnCampaignButton();
 		
@@ -96,29 +113,49 @@ public class CampaignpageTest extends TestBase {
 	}
 	
 	
+	@Test(priority = 2)
 	
+	public void validateAdvanceCampaignTest() throws Throwable {
+		
+		
+		campaignpage.clickOnCampaignButton();
+		
+		campaignpage.createSimpleCampaign("https://apple.com","apple","stevejobs");
+		
+		campaignpage.createSimpleCampaign("browser");
+		
+		campaignpage.creatSendLaterCampaign();
+		
+		campaignpage.createcampaign("tap", "https://amazon.com", "sun");
+		
+	    campaignpage.sendNotification();
+		
+
 	
-	@AfterMethod
-	public void teardown() {
-		driver.close();
+		
+		
 	}
 	
 	
 	
 	
+	@Test(priority = 3)
+	
+	public void validateTruepushLogoTest() throws IOException {
+		
+	
+	boolean flag =	maininterface.truepushlogo();
 	
 	
+	Assert.assertTrue(flag);
 	
 	
+			}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	@AfterMethod
+	public void teardown() {
+		driver.close();
+	}
 	
 	
 

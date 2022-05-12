@@ -4,6 +4,7 @@ import java.io.File;
 
 
 
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,20 +33,34 @@ public class Testut {
 	  public static long IMPLICIT_WAIT=50;
 	  
 	  
-		public static void takeScreenshot() throws IOException {
+		public static void takeScreenshot(WebDriver driver,String testmethod)    {
 			
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			String currentDir = System.getProperty("/home/exe0028/Desktop/shiva/Truepushautomation");
-			FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + "screenshot.png"));
+	        
+			
+				
+				try {
+					
+					
+		FileUtils.copyFile(scrFile, new File("/home/exe0028/Desktop/shiva/Truepushautomation/Screenshots"+testmethod+".jpg"));   
+					
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+				
+			
+
+			
 			
 		}
 
 		
 	  
-		
-		
-		public static String TESTDATA_SHEET_PATH = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main"
-				+ "/java/com/truepush/qa/testdata/campaigns.xlsx";
+
+
+		public static String TESTDATA_SHEET_PATH = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main/java/"
+				+ "com/truepush/qa/testdata/camps.xlsx";
 	  
 
 	public static Object[][] getCampaignTestData(String sheetName) {
@@ -154,8 +169,7 @@ return data;
 
 
 
-public static String TESTDATA_SHEET_PATH3 = "/home/exe0028/Desktop/shiva/Truepushautomation/src"
-		+ "/main/java/com/truepush/qa/testdata/templates.xlsx";
+public static String TESTDATA_SHEET_PATH3 = "/home/exe0028/Desktop/shiva/Truepushautomation/src/main/java/com/qa/truepush/data/templates.xlsx";
 
 
 public static Object[][] getTemplateTestData(String sheetName) {

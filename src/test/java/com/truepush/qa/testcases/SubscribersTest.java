@@ -47,7 +47,7 @@ public class SubscribersTest extends TestBase{
  
 		 projectpage = new ProjectPage();
 
-		 projectpage.clickonproject();
+		 projectpage.clickOnProjectlink();
 		
          maininterface = new Maininterface();
          

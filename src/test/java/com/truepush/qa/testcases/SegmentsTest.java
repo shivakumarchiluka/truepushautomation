@@ -49,7 +49,7 @@ public class SegmentsTest extends TestBase {
  
 		 projectpage = new ProjectPage();
  
-		         projectpage.clickonproject();
+		         projectpage.clickOnProjectlink();
 		 
           maininterface = new Maininterface();
 	

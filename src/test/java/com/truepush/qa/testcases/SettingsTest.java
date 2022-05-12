@@ -45,7 +45,7 @@ public class SettingsTest extends TestBase {
  
 		 projectpage = new ProjectPage();
 
-		 projectpage.clickonproject();
+		 projectpage.clickOnProjectlink();
 		
          maininterface = new Maininterface();
        
@@ -165,7 +165,8 @@ public class SettingsTest extends TestBase {
 	}
 
 	
-      @Test(priority = 11)
+     @Test(priority = 11)
+     
       public void validateDefaultSettingsTest() {
 	
 	
@@ -174,7 +175,7 @@ public class SettingsTest extends TestBase {
           }
 
       
-      @Test(priority = 12)
+      @Test(priority = 0)
       
       public void validateGDPRTest() {
     	  

@@ -4,22 +4,243 @@
 
 <suite name="TruePush Automation">
 
-  <test  name="Truepush testcases">
+	<listeners>
 
-<parameter name="url" value="tinnier-chests.000webhostapp.com/"></parameter>
+		<listener class-name="com.qa.extentreportlistener.ExtentreporterNg"/>
+
+	</listeners>
+
+
+
+<test name="Truepush Login">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.LoginTest"></class>
+
+</classes>
+
+</test>
+
+
+
+<test name="Truepush Project">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.ProjectPageTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush New Project">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.NewProjectPageTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Users">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.UsersTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+  <test  name="Truepush Maininterface">
 
  <classes>
 
-<class name="com.truepush.qa.testcases.SettingsTest">
+<class name="com.truepush.qa.testcases.MaininterfaceTest">
 
-<methods> <include name="validateSettingsPage"></include>
+</class>
+
+    </classes>
+
+  </test>
+
+
+
+
+<test name="Truepush Dashboard">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.DashboardTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush Campaigns">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.CampaignpageTest">
+
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush RSS to Push">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.RSSTest">
+
+<methods><include name="validateRSSfeedsTest"></include>
 
 </methods>
 
+</class>
+
+
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Segments">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.SegmentsTest">
+
+<methods><include name="validateSegmentEditFeatureTes"></include></methods>
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Templates">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.TemplateTest">
+
+<methods><include name="validateEditTemplateTest"></include></methods>
 
 </class>
-    </classes>
-  </test>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Triggers">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.TriggerTest">
+
+<methods><include name="editTriggerTest"></include></methods>
+
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Subscribers">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.SubscribersTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Code Integration">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.CodeIntegrationPagetest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+
+<test name="Truepush Settings">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.SettingsTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+
+<test name="Truepush Pricing">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.PricingTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
 
 
 </suite> 

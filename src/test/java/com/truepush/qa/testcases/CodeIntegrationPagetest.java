@@ -43,7 +43,7 @@ public class CodeIntegrationPagetest extends TestBase{
  
 		 projectpage = new ProjectPage();
  
-		         projectpage.clickonproject();
+		         projectpage.clickOnProjectlink();
 		 
           maininterface = new Maininterface();
           

@@ -1,6 +1,11 @@
 package com.qa.extentreportlistener;
 
+
+
+
+
 import java.io.File;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -18,9 +23,9 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+
 public class ExtentreporterNg implements IReporter{
 
-	
 	private ExtentReports extent;
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
