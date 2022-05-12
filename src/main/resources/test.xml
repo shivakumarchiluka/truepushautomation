@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Truepush Automation">
+
+	<listeners>
+		<listener class-name="com.qa.extentreportlistener.ExtentreporterNg" />
+	</listeners>
+
+
+
+
+
+<test name="Truepush Users">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.UsersTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+  <test  name="Truepush Maininterface">
+
+ <classes>
+
+<class name="com.truepush.qa.testcases.MaininterfaceTest">
+
+</class>
+
+    </classes>
+
+  </test>
+
+
+
+
+<test name="Truepush Dashboard">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.DashboardTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush Campaigns">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.CampaignpageTest">
+
+<methods><exclude name="validateAdvanceCampaignTest"></exclude></methods>
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush RSS to Push">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.RSSTest">
+
+<methods><exclude name="validateRSSfeedsTest"></exclude></methods>
+
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Segments">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.SegmentsTest">
+
+<methods><exclude name="validateSegmentEditFeatureTes"></exclude>
+
+</methods>
+
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Templates">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.TemplateTest">
+
+<methods><exclude name="validateEditTemplateTest"></exclude></methods></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Triggers">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.TriggerTest">
+
+<methods><exclude name="editTriggerTest"></exclude></methods>
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Subscribers">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.SubscribersTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+<test name="Truepush Code Integration">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.CodeIntegrationPagetest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+
+<test name="Truepush Settings">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.SettingsTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+
+
+<test name="Truepush Pricing">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.PricingTest"></class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush Project">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.ProjectPageTest">
+
+</class>
+
+</classes>
+
+</test>
+
+
+
+
+<test name="Truepush New Project">
+
+<classes>
+
+<class name="com.truepush.qa.testcases.NewProjectPageTest"></class>
+
+</classes>
+
+</test>
+
+</suite> 
