@@ -1,9 +1,13 @@
 package com.truepush.qa.testcases;
 
+import org.testng.annotations.Test;
+
 import java.awt.AWTException;
+
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 
@@ -11,12 +15,13 @@ import org.testng.annotations.AfterMethod;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.CampaignPage;
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.ProjectPage;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 import com.truepush.qa.utilities.Testut;
 
@@ -62,6 +67,10 @@ public class CampaignpageTest extends TestBase {
 			campaignpage =  maininterface.clickoncampaignlink();
 			
 			  campaignpage = new CampaignPage();
+			  
+			  
+				report = new ExtentReports("/home/exe0028/Desktop/shiva/Truepushautomation/report/report.html", true);
+
 
 
      	}
@@ -83,8 +92,10 @@ public class CampaignpageTest extends TestBase {
 	
 	@Test(priority = 0 ,dataProvider = "campaigntestData")
 	
-	public void validateCampaignPage(String Enterurl, String Entertitle, String Entermessage) {
+	public void validateCreateCampaignsDTTTest(String Enterurl, String Entertitle, String Entermessage) {
 
+		
+		test = report.startTest("validate CreateCampaigns data driven Test");
 		
         campaignpage.clickoncreatecampaignDTT(Enterurl, Entertitle, Entermessage);
 	}
@@ -104,7 +115,9 @@ public class CampaignpageTest extends TestBase {
 	
 	@Test(priority = 1)
 	
-	public void validateCampaignTest() throws AWTException {
+	public void validateCreateCampaignTest() throws AWTException {
+		
+		test = report.startTest("validate campaign Test");
 		
 		campaignpage.clickOnCampaignButton();
 		
@@ -115,8 +128,9 @@ public class CampaignpageTest extends TestBase {
 	
 	@Test(priority = 2)
 	
-	public void validateAdvanceCampaignTest() throws Throwable {
+	public void validateAdvancedCampaignTest() throws Throwable {
 		
+		test = report.startTest("validate advance campaign Test");
 		
 		campaignpage.clickOnCampaignButton();
 		
@@ -143,6 +157,7 @@ public class CampaignpageTest extends TestBase {
 	
 	public void validateTruepushLogoTest() throws IOException {
 		
+		test = report.startTest("validate Truepush logo Test");
 	
 	boolean flag =	maininterface.truepushlogo();
 	
@@ -152,9 +167,45 @@ public class CampaignpageTest extends TestBase {
 	
 			}
 	
+	
+	
 	@AfterMethod
-	public void teardown() {
-		driver.close();
+	
+ 	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName());
+ 			//to add name in extent report
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = CampaignpageTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 		}
+ 			else if(result.getStatus()==ITestResult.SKIP){
+ 				
+ 	 			test.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+ 	 			
+ 	 			String screenshotPath = CampaignpageTest.getScreenshot(driver, result.getName());
+ 	 			
+ 	 			test.log(LogStatus.SKIP, test.addScreenCapture(screenshotPath));
+ 			}
+ 	 	/*	if(result.getStatus()==ITestResult.SUCCESS){
+ 	 			
+ 	 			test.log(LogStatus.PASS, "Test Case PASSED IS " + result.getName());
+ 	 			
+ 	 			String screenshotPath =  CampaignpageTest.getScreenshot(driver, result.getName());
+
+ 	            test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
+ 	 		
+ 	 		}*/
+ 		
+ 			report.endTest(test);
+ 			
+ 			driver.close();
+ 		
+ 		
 	}
 	
 	

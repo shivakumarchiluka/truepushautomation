@@ -1,6 +1,10 @@
 package com.qa.truepush.pages;
 
 
+import java.util.Iterator;
+
+import java.util.Set;
+
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
@@ -163,7 +167,7 @@ public class Maininterface extends TestBase {
 	WebElement billing;
 	
 	
-	@FindBy(css = "//div[@class=\"container-fluid\"]/preceding::a[1]")
+	@FindBy(xpath = "//div[@class=\"container-fluid\"]/preceding::a[1]")
 	
 	
 	WebElement logout;
@@ -359,16 +363,54 @@ public class Maininterface extends TestBase {
 		
 		billing.click();
 		
-		logout.click();
 		
 		
 	}
 	
 	
-	public void verfiyDriftChat() {
+	
+	public void verifyLogoutIcon() {
+		
+		profileicon.click();
+
+		
+		logout.click();
+		
+	}
+	
+	
+	
+	public void verfiyDriftChat() throws Exception {
 		
 		chatbutton.click();
 		
+		
+        Set<String> windowhandles = driver.getWindowHandles();
+        
+        
+		System.out.print(windowhandles);
+		
+		
+	    Iterator<String>iterator = windowhandles.iterator();
+	    
+	    
+	    String parentwindow = iterator.next();
+	    
+	    System.out.println(parentwindow);
+	    
+	    String childwindow = iterator.next();
+	    
+	    
+	    driver.switchTo().window(childwindow);
+	    
+	    	Thread.sleep(2000); 
+	    	
+	    	driver.close();	  
+	    	
+		driver.switchTo().window(parentwindow);
+		
+
+
 	}
 	
 		

@@ -2,16 +2,23 @@ package com.truepush.qa.testcases;
 
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.qa.truepush.pages.HomePage;
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.ProjectPage;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
 public class LoginTest extends TestBase {
 
 	ProjectPage projectpage;
+	
+	HomePage homepage;
 	
 	Loginpage  login;
 	
@@ -27,16 +34,20 @@ public class LoginTest extends TestBase {
 	 @BeforeMethod
 	 public void setUP() {
 		 
-		 initialization();
+		 initialization();		 
 		 
        login = new Loginpage();
 	 }
 	
 	 
 	 @Test
-	 public void ValidateLogin() {
+	 public void ValidateLoginTest() {
+		 
+		 test = report.startTest("validate login test");
 		 
 		projectpage = login.Validatelogin(prop.getProperty("email"),prop.getProperty("password"));
+		 
+		// project page = login.Validatelogin("cetare7393@qqhow.com", "chiluka");
 		
 		System.out.println("successfully logined into the truepush account");
 	 }
@@ -45,10 +56,33 @@ public class LoginTest extends TestBase {
 	 
 	
 	@AfterMethod
-	public void teardown() {
-		driver.quit();
-	}
+	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName());
+ 			//to add name in extent report
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = LoginTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 		}
+ 			else if(result.getStatus()==ITestResult.SKIP){
+ 				
+ 	 			test.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+ 	 			
+ 	 			String screenshotPath = LoginTest.getScreenshot(driver, result.getName());
+ 	 			
+ 	 			test.log(LogStatus.SKIP, test.addScreenCapture(screenshotPath));
+ 			}
 	
+ 		
+ 		report.endTest(test);
+ 		
+ 		driver.close();
+	}
+
 	
 	
 }

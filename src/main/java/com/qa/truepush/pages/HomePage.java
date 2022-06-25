@@ -14,7 +14,9 @@ public class HomePage extends TestBase{
 WebElement Registerbutton;
 
 
+@FindBy(xpath = "//button[text()='Login']")
 
+WebElement loginbutton;
 
 
 public  HomePage() {
@@ -30,6 +32,14 @@ public RegistrationPage clickOnRegister() {
 	Registerbutton.click();
 
 	return new RegistrationPage();
+	
+}
+
+public Loginpage clickOnLogin() {
+	
+	loginbutton.click();
+	
+	return new Loginpage();
 	
 }
 

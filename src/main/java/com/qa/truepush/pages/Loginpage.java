@@ -1,5 +1,7 @@
 package com.qa.truepush.pages;
 
+
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,23 +22,29 @@ public class Loginpage extends TestBase{
 	
 	
 	@FindBy(name="email")
+	
 	WebElement Email;
 	
 	
 	@FindBy(css="#fullname")
+	
 	WebElement Password;
 	
 	
 	@FindBy(xpath="//h1[text()='Login to your Truepush account']/following::button[1]")
+	
 	WebElement LOGIN;
 	
 	@FindBy(xpath="//a[text()='Forgot Password']")
+	
 	WebElement Forgotpassword;
 	
 	@FindBy(css="#email")
+	
 	WebElement ForgetEmail;
 	
 	@FindBy(xpath="//button[text()='Send Verification Link']")
+	
 	WebElement SendMail;
 	
 
@@ -46,9 +54,33 @@ public class Loginpage extends TestBase{
    
    public  ProjectPage Validatelogin(String us, String pass) {
 	   
+	   
+	/*   Set<String> windowhandles = driver.getWindowHandles();
+       
+       
+		//	System.out.print(windowhandles);
+			
+		    Iterator<String>iterator = windowhandles.iterator();
+		    
+		    
+		    String parentwindow = iterator.next();
+		    
+		    
+		    System.out.print(parentwindow);
+		    
+		    
+		    String childwindow = iterator.next();
+		    
+		    
+		    driver.switchTo().window(childwindow);	 */
+
+	   
 	   Email.sendKeys(us);
+	   
 	   Password.sendKeys(pass);
+	   
 	   LOGIN.click();
+	   
 	   return new ProjectPage();
    }
    

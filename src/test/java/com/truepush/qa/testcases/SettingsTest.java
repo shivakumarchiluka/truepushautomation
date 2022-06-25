@@ -1,14 +1,20 @@
 package com.truepush.qa.testcases;
 
-import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import org.testng.AssertJUnit;
+import org.testng.ITestResult;
+
+import java.io.IOException;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.ProjectPage;
 import com.qa.truepush.pages.SettingsPage;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
 public class SettingsTest extends TestBase {
@@ -64,7 +70,7 @@ public class SettingsTest extends TestBase {
 		
 	boolean flag = 	settings.verifyRestApiKey();
 		
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 		
 	}
 	
@@ -76,7 +82,7 @@ public class SettingsTest extends TestBase {
 		
 	boolean flag = 	settings.verifyAPPId();
 		
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 		
      }
 
@@ -186,8 +192,33 @@ public class SettingsTest extends TestBase {
 	
 	
 	@AfterMethod
-	public void teardown() {
-		driver.close();
+	
+	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = SettingsTest.getScreenshot(driver, result.getName());
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 			
+ 		}
+ 		
+		else if(result.getStatus()==ITestResult.SKIP){
+				
+	 			test.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+	 			
+	 			test.log(LogStatus.SKIP, "TEST CASE SKIPPED IS "+result.getThrowable());
+	 			
+	 			String screenshotPath = SettingsTest.getScreenshot(driver, result.getName());
+	 			
+	 			test.log(LogStatus.SKIP, test.addScreenCapture(screenshotPath));
+	 			
+		}
+ 			report.endTest(test);
+ 			
+ 			driver.close();
+	
 	}
 	
 	

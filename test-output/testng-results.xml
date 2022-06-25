@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="15" total="16" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-12T18:16:51 IST" name="Default suite" finished-at="2022-05-12T18:17:01 IST" duration-ms="10468">
+  <suite started-at="2022-06-20T16:14:02 IST" name="Default suite" finished-at="2022-06-20T16:14:30 IST" duration-ms="27320">
     <groups>
     </groups>
-    <test started-at="2022-05-12T18:16:51 IST" name="Default test" finished-at="2022-05-12T18:17:01 IST" duration-ms="10468">
-      <class name="com.truepush.qa.testcases.MaininterfaceTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.truepush.qa.testcases.MaininterfaceTest@7c0c77c7]" started-at="2022-05-12T18:16:51 IST" name="setup" finished-at="2022-05-12T18:16:59 IST" duration-ms="7564" status="PASS">
+    <test started-at="2022-06-20T16:14:02 IST" name="Default test" finished-at="2022-06-20T16:14:30 IST" duration-ms="27320">
+      <class name="com.truepush.qa.testcases.RegistrationPageTest">
+        <test-method is-config="true" signature="setExtent()[pri:0, instance:com.truepush.qa.testcases.RegistrationPageTest@29626d54]" started-at="2022-06-20T16:14:02 IST" name="setExtent" finished-at="2022-06-20T16:14:03 IST" duration-ms="350" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setExtent -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.truepush.qa.testcases.RegistrationPageTest@29626d54]" started-at="2022-06-20T16:14:03 IST" name="setup" finished-at="2022-06-20T16:14:09 IST" duration-ms="6447" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="validateCampaignPageLinkTest()[pri:1, instance:com.truepush.qa.testcases.MaininterfaceTest@7c0c77c7]" started-at="2022-05-12T18:16:59 IST" name="validateCampaignPageLinkTest" finished-at="2022-05-12T18:17:01 IST" duration-ms="2418" status="PASS">
+        <test-method signature="validateRegistration()[pri:1, instance:com.truepush.qa.testcases.RegistrationPageTest@29626d54]" started-at="2022-06-20T16:14:09 IST" name="validateRegistration" finished-at="2022-06-20T16:14:11 IST" duration-ms="1895" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validateCampaignPageLinkTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.truepush.qa.testcases.MaininterfaceTest@7c0c77c7]" started-at="2022-05-12T18:17:01 IST" name="teardown" finished-at="2022-05-12T18:17:01 IST" duration-ms="428" status="PASS">
+        </test-method> <!-- validateRegistration -->
+        <test-method signature="validateNewProject()[pri:2, instance:com.truepush.qa.testcases.RegistrationPageTest@29626d54]" started-at="2022-06-20T16:14:11 IST" name="validateNewProject" finished-at="2022-06-20T16:14:29 IST" duration-ms="17872" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.truepush.qa.testcases.MaininterfaceTest -->
+        </test-method> <!-- validateNewProject -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.truepush.qa.testcases.RegistrationPageTest@29626d54]" started-at="2022-06-20T16:14:29 IST" name="tearDown" finished-at="2022-06-20T16:14:29 IST" duration-ms="191" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="endreport()[pri:0, instance:com.truepush.qa.testcases.RegistrationPageTest@29626d54]" started-at="2022-06-20T16:14:29 IST" name="endreport" finished-at="2022-06-20T16:14:30 IST" duration-ms="456" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endreport -->
+      </class> <!-- com.truepush.qa.testcases.RegistrationPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

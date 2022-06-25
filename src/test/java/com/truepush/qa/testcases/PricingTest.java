@@ -1,14 +1,20 @@
 package com.truepush.qa.testcases;
 
-import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import org.testng.AssertJUnit;
+import org.testng.ITestResult;
+
+import java.io.IOException;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.PricingPage;
 import com.qa.truepush.pages.ProjectPage;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
 public class PricingTest extends TestBase{
@@ -64,9 +70,11 @@ public class PricingTest extends TestBase{
 		
 		public void validateCurrentProjectTest() {
 			
+			test = report.startTest("validate Current Project Test");
+			
 		boolean flag =	pricing.CurrentProject();
 		
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 			
 			
 		}
@@ -75,9 +83,12 @@ public class PricingTest extends TestBase{
 		
 		public void validateCurrentProjectSubscribersTest() {
 			
+			test = report.startTest("validate Current Project Subscribers Test");
+
+			
 		boolean flag =	pricing.currentprojectSubscribers();
 		
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 			
 			
 		}
@@ -88,9 +99,13 @@ public class PricingTest extends TestBase{
 		   
 		   public void validateCurrentProjectPricingTest() { 
 			   
+			   
+				test = report.startTest("validate Current Project Pricing Test");
+ 
+			   
 			 boolean flag =   pricing.currentProjectPricing();
 			   
-			   Assert.assertTrue(flag);
+			   AssertJUnit.assertTrue(flag);
 		   }
 		
 		
@@ -100,6 +115,10 @@ public class PricingTest extends TestBase{
 		   @Test
 		   
 		   public void validatePaymentTest() { 
+			   
+			   
+				test = report.startTest("validate Payment Test");
+
 			   
 			   pricing.currentProjectPayment();
 			   
@@ -112,9 +131,13 @@ public class PricingTest extends TestBase{
 		
 		public void validateAllProjectTest() {
 			
+			
+			test = report.startTest("validate AllProjects Test");
+
+			
 		boolean flag =	pricing.allProjects();
 		
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 			
 			
 		}
@@ -124,11 +147,15 @@ public class PricingTest extends TestBase{
 		   
 			@Test
 			
-			public void validateAllProjectSubscribersTest() {
+			public void validateAllProjectsSubscribersTest() {
+				
+				
+				test = report.startTest("validate AllProjects Subscribers Test");
+
 				
 			boolean flag =	pricing.allprojectsSubscribers();
 			
-			Assert.assertTrue(flag);
+			AssertJUnit.assertTrue(flag);
 				
 				
 			}
@@ -137,11 +164,15 @@ public class PricingTest extends TestBase{
 			
 			   @Test
 			   
-			   public void validateAllProjectPricingTest() { 
+			   public void validateAllProjectsPricingTest() { 
+				   
+				   
+					test = report.startTest("validate All Projects Pricing Test");
+
 				   
 				boolean flag =   pricing.allProjectsPricing();
 				   
-				   Assert.assertTrue(flag);
+				   AssertJUnit.assertTrue(flag);
 			   }
 			   
 			
@@ -150,6 +181,10 @@ public class PricingTest extends TestBase{
 			   @Test
 			   
 			   public void validatePaymentOverviewTest() { 
+				   
+				   
+					test = report.startTest("validate Payment Overview Test");
+
 				   
 				   pricing.allProjectsPayment();
 				   
@@ -160,8 +195,35 @@ public class PricingTest extends TestBase{
 		
 	
 	@AfterMethod
-	public void teardown() {
-		driver.close();
+	
+	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 			
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = PricingTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 			
+ 		}
+ 		
+		else if(result.getStatus()==ITestResult.SKIP){
+				
+	 			test.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+	 			
+	 			test.log(LogStatus.SKIP, "TEST CASE SKIPPED IS "+result.getThrowable());
+	 			
+	 			String screenshotPath = PricingTest.getScreenshot(driver, result.getName());
+	 			
+	 			test.log(LogStatus.SKIP, test.addScreenCapture(screenshotPath));
+	 			
+		}
+ 			report.endTest(test);
+ 			
+ 			driver.close();
 	}
 	
 		

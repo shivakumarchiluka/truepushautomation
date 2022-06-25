@@ -2,6 +2,7 @@
 
 
 import java.util.Iterator;
+
 import java.util.Set;
 
 import org.openqa.selenium.By;
@@ -87,13 +88,13 @@ import com.truepush.qa.testbase.TestBase;
 	
 	
  
-	public void verifyRegistration(String name, String email,String password) {	
+	public void verifyRegistration(String name, String email,String password) throws Throwable {	
 		
 		
         Set<String> windowhandles = driver.getWindowHandles();
         
         
-		System.out.print(windowhandles);
+	//	System.out.print(windowhandles);
 		
 	    Iterator<String>iterator = windowhandles.iterator();
 	    
@@ -127,20 +128,38 @@ import com.truepush.qa.testbase.TestBase;
         
 	//	driver.switchTo().window(parentwindow);
 		
-	}
+	}	
+		
+	
 	
 	public void createNewProject(String name) {
 		
 		
-		
 		enterprojectname.sendKeys(name);
+		
+		try {
+			
+			Thread.sleep(2000);
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 		
 		webimage.click();
 		
+		try {
+			
+			Thread.sleep(2000);
+			
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 		configureweb.click();
 		
-		
 	}
+	
 	
 	public void clickOnCodeIntegrate() {
 		
@@ -161,7 +180,42 @@ import com.truepush.qa.testbase.TestBase;
 		WebElement ele = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@class = \"is-close h-auto\"]")));
 				
 		ele.click();
+				
+		try {
+			
+			Thread.sleep(2000);
+			
+			
+		} catch (InterruptedException e) {
+			
+			
+			e.printStackTrace();
+		}
 		
+    /*   Set<String> windowhandles = driver.getWindowHandles();
+        
+        
+		System.out.print(windowhandles);
+		
+	    Iterator<String>iterator = windowhandles.iterator();
+	    
+	    
+	    String parentwindow = iterator.next();
+	    
+	    
+	    System.out.print(parentwindow);
+	    
+	    
+	    String childwindow = iterator.next();
+	    
+	    
+		System.out.println(childwindow); 
+		
+		
+	driver.switchTo().window(parentwindow); */
+		
+			
+
 	}
 	
 

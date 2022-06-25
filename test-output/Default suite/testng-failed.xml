@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.truepush.qa.testcases.MaininterfaceTest">
+      <class name="com.truepush.qa.testcases.RegistrationPageTest">
         <methods>
-          <include name="validateTruepushLogoTest"/>
-          <include name="teardown"/>
+          <include name="tearDown"/>
+          <include name="validateNewProject"/>
+          <include name="endreport"/>
           <include name="setup"/>
+          <include name="setExtent"/>
         </methods>
-      </class> <!-- com.truepush.qa.testcases.MaininterfaceTest -->
+      </class> <!-- com.truepush.qa.testcases.RegistrationPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

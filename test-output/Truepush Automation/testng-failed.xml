@@ -8,7 +8,7 @@
     <classes>
       <class name="com.truepush.qa.testcases.UsersTest">
         <methods>
-          <include name="endReport"/>
+          <include name="endreport"/>
           <include name="teardown"/>
           <include name="setup"/>
           <include name="validateAddNewUsersTest"/>
@@ -21,26 +21,10 @@
     <classes>
       <class name="com.truepush.qa.testcases.MaininterfaceTest">
         <methods>
-          <include name="validateProfileIconTest"/>
-          <include name="validateRSSPageLinkTest"/>
-          <include name="validateDriftChat"/>
-          <include name="endReport"/>
-          <include name="validateCodeIntegrationPageLinkTest"/>
-          <include name="validateCampaignPageLinkTest"/>
-          <include name="validateSettingsPageLinkTest"/>
-          <include name="validateTemplatesPageLinkTest"/>
-          <include name="validatePricingPageLinkTest"/>
-          <include name="validateSwichToProject"/>
-          <include name="validateTruepushLogoTest"/>
-          <include name="validateMenuButton"/>
-          <include name="validateTriggersPageLinkTest"/>
-          <include name="teardown"/>
-          <include name="validateProfileiconPageLinkTest"/>
+          <include name="endreport"/>
+          <include name="tearDown"/>
           <include name="setup"/>
           <include name="validatePageTitleTest"/>
-          <include name="valiateSubscribersPageLinkTest"/>
-          <include name="validateCampaignButtonTest"/>
-          <include name="validateSegmentsPageLinkTest"/>
           <include name="setExtent"/>
         </methods>
       </class> <!-- com.truepush.qa.testcases.MaininterfaceTest -->
@@ -50,50 +34,54 @@
     <classes>
       <class name="com.truepush.qa.testcases.CampaignpageTest">
         <methods>
-          <include name="validateCampaignTest"/>
+          <include name="validateTruepushLogoTest"/>
           <include name="setup"/>
-          <include name="teardown"/>
-          <include name="endReport"/>
-          <include name="validateCampaignPage"/>
+          <include name="endreport"/>
+          <include name="validateAdvancedCampaignTest"/>
+          <include name="tearDown"/>
+          <include name="validateCreateCampaignsDTTTest"/>
+          <include name="validateCreateCampaignTest"/>
           <include name="setExtent"/>
         </methods>
       </class> <!-- com.truepush.qa.testcases.CampaignpageTest -->
     </classes>
   </test> <!-- Truepush Campaigns(failed) -->
+  <test thread-count="5" name="Truepush RSS to Push(failed)">
+    <classes>
+      <class name="com.truepush.qa.testcases.RSSTest">
+        <methods>
+          <include name="setup"/>
+          <include name="endreport"/>
+          <include name="tearDown"/>
+          <include name="validateAddRSSFeedsDTTTest" invocation-numbers="0"/>
+          <include name="setExtent"/>
+        </methods>
+      </class> <!-- com.truepush.qa.testcases.RSSTest -->
+    </classes>
+  </test> <!-- Truepush RSS to Push(failed) -->
   <test thread-count="5" name="Truepush Code Integration(failed)">
     <classes>
       <class name="com.truepush.qa.testcases.CodeIntegrationPagetest">
         <methods>
           <include name="setup"/>
           <include name="teardown"/>
-          <include name="endReport"/>
+          <include name="endreport"/>
           <include name="validateSendCodeTest"/>
           <include name="setExtent"/>
         </methods>
       </class> <!-- com.truepush.qa.testcases.CodeIntegrationPagetest -->
     </classes>
   </test> <!-- Truepush Code Integration(failed) -->
-  <test thread-count="5" name="Truepush Settings(failed)">
-    <classes>
-      <class name="com.truepush.qa.testcases.SettingsTest">
-        <methods>
-          <include name="setup"/>
-          <include name="teardown"/>
-          <include name="endReport"/>
-          <include name="validateWelcomenotificationTest"/>
-          <include name="setExtent"/>
-        </methods>
-      </class> <!-- com.truepush.qa.testcases.SettingsTest -->
-    </classes>
-  </test> <!-- Truepush Settings(failed) -->
   <test thread-count="5" name="Truepush Project(failed)">
     <classes>
       <class name="com.truepush.qa.testcases.ProjectPageTest">
         <methods>
+          <include name="validateCloneProjectTest"/>
+          <include name="endreport"/>
           <include name="setup"/>
           <include name="teardown"/>
           <include name="validatePlatformTest"/>
-          <include name="endReport"/>
+          <include name="validateDeleteProjectTest"/>
           <include name="setExtent"/>
         </methods>
       </class> <!-- com.truepush.qa.testcases.ProjectPageTest -->
@@ -103,8 +91,8 @@
     <classes>
       <class name="com.truepush.qa.testcases.NewProjectPageTest">
         <methods>
+          <include name="endreport"/>
           <include name="setup"/>
-          <include name="endReport"/>
           <include name="validateCodeIntegrationSetUpTEst"/>
           <include name="setExtent"/>
           <include name="teardown"/>

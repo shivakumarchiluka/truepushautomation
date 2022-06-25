@@ -3,13 +3,17 @@ package com.truepush.qa.testcases;
 import org.testng.annotations.Test;
 
 
-import java.awt.AWTException;
 
+import java.awt.AWTException;
+import java.io.IOException;
+
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.ProjectPage;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
 public class ProjectPageTest extends TestBase {
@@ -45,11 +49,13 @@ public class ProjectPageTest extends TestBase {
 	@Test(priority = 1)
 	public void validateProjectLinkTest() {
 		
+		test = report.startTest("validate Project Link Test");
+
 		
 		projectpage.clickOnProjectlink();
 		
 		
-		System.out.println("project dashboard link has been clicked");
+		System.out.println("project link has been clicked");
 	}
 
 /*	@Test(priority = 2)
@@ -67,6 +73,8 @@ public class ProjectPageTest extends TestBase {
 	@Test(priority = 3)
 	public void validateNewProjectTest() {
 		
+		test = report.startTest("validate New Project Test");
+
 		
 		projectpage.clickOnNewProjectButton();
 		
@@ -79,6 +87,8 @@ public class ProjectPageTest extends TestBase {
 	@Test(priority = 2)
 	public void validateUsersLinkTest() {
 		
+		test = report.startTest("validate Users Link Test");
+
 
 		projectpage.clickOnUserslink();
 
@@ -92,6 +102,10 @@ public class ProjectPageTest extends TestBase {
 	
 	public void validateSortBySubscriberButtonTest() {
 		
+		
+		test = report.startTest("validate Sort By Subscriber Button Test");
+
+		
 		projectpage.verifySortBySubscribersButton();
 		
 	}
@@ -101,6 +115,9 @@ public class ProjectPageTest extends TestBase {
 	@Test(priority = 5)
 	
 	public void validatePlatformTest() {
+		
+		test = report.startTest("validate Platform Test");
+
 		
 		projectpage.verifyPlatform();
 		
@@ -112,6 +129,9 @@ public class ProjectPageTest extends TestBase {
 	
 public	void validateCloneProjectTest() throws AWTException {
 		
+		test = report.startTest("validate Clone Project Test");
+
+		
 		projectpage.verifyCloneProject("clone", "luscious-hunts.000webhostapp.com/");
 						
 
@@ -121,6 +141,9 @@ public	void validateCloneProjectTest() throws AWTException {
 	@Test(priority = 7)
 	
 	public void validateTokenInfoTest() {
+		
+		test = report.startTest("validate TokenInfo Test");
+
 		
 		projectpage.verifyTokenInfo();
 		
@@ -142,6 +165,7 @@ public	void validateCloneProjectTest() throws AWTException {
 	
 	void validateDeleteProjectTest() {
 		
+		test = report.startTest("validate Delete Project Test");
 		
 		projectpage.verifyDeleteProjectButton();
 		
@@ -155,8 +179,36 @@ public	void validateCloneProjectTest() throws AWTException {
 	
 	@AfterMethod
 	
-	public void teardown() {
-		
-		driver.close();
+	
+	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 			
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 		
+ 			
+ 			String screenshotPath = ProjectPageTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 			
+ 			
+ 		}
+ 		
+		else if(result.getStatus()==ITestResult.SKIP){
+				
+	 			test.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+	 			
+	 			test.log(LogStatus.SKIP, "TEST CASE SKIPPED IS "+result.getThrowable());
+	 			
+	 			String screenshotPath = ProjectPageTest.getScreenshot(driver, result.getName());
+	 			
+	 			test.log(LogStatus.SKIP, test.addScreenCapture(screenshotPath));
+	 			
+		}
+ 			report.endTest(test);
+ 			
+ 			driver.close();
 	}
 }

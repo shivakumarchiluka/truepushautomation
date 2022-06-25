@@ -1,16 +1,23 @@
 package com.truepush.qa.testcases;
 
 
-import org.openqa.selenium.JavascriptExecutor;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.BeforeMethod;
 
 import com.qa.truepush.pages.CampaignPage;
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.Maininterface;
 import com.qa.truepush.pages.ProjectPage;
 import com.qa.truepush.pages.TemplatesPage;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
 
@@ -62,12 +69,16 @@ public class TemplateTest  extends TestBase {
           
          template = new TemplatesPage(); 
          
+			report = new ExtentReports("/home/exe0028/Desktop/shiva/Truepushautomation/report/report.html", true);
+
 	}
 	
 	
 	@Test(priority = 1)
 	
 	public void validateTemplateCreationTest() {
+		
+	test = 	report.startTest("validate Template Creation Test");
 		
 		template.createTemplate("w3schools", "https://w3schools.com", "programming languages",
 				
@@ -134,8 +145,9 @@ public class TemplateTest  extends TestBase {
 	
 	@Test(priority = 2)
 	
-	public void validateTemplateTest() {
+	public void validateSecondTemplateCreationTest() {
 		
+		test = report.startTest("validate Second Template Test");
 		
 		template.createTemplateDTT("jiomart","https://jiomart.com","order groceries,essentials etc",
 				"avail the free home delivery service");
@@ -147,6 +159,8 @@ public class TemplateTest  extends TestBase {
 	@Test(priority = 3)
 	
 	public void  validateEditTemplateTest() throws Throwable {
+		
+		test = report.startTest("validate Edit Template Test");
 		
 	//	Thread.sleep(2000);
 		
@@ -171,12 +185,36 @@ public class TemplateTest  extends TestBase {
 	
 	
 	@AfterMethod
-	
-	public void tearDown(){
-		
-		driver.close();
-		
-	}	
+ 	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 			
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = TemplateTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 			
+ 		}
+ 		
+ 		else if(result.getStatus()==ITestResult.SKIP){
+ 			
+ 			test.log(LogStatus.SKIP, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 			
+ 		test.log(LogStatus.SKIP, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = TemplateTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.SKIP, test.addScreenCapture(screenshotPath));
+ 			
+ 			
+ 		}
+ 			report.endTest(test);
+ 			
+ 			driver.close();
+ 			
+ 		}	
 	
 	
 	

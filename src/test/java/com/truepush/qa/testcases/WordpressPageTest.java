@@ -1,12 +1,14 @@
 package com.truepush.qa.testcases;
 
+import org.testng.annotations.AfterMethod;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
 
 import com.qa.truepush.pages.Wordpresspage;
 import com.truepush.qa.utilities.Testut;
@@ -45,7 +47,9 @@ public void validateWordpressPost() {
 	
 	word.validateWordpressPost("solarsystem19999@outlook.com", "Chiluka@1997");
 	
-	word.validateWordpressPost("ukraine-russia");
+	word.validateWordpressPost("\n"
+			+ "Monkeypox is a disease caused by the monkeypox virus. It is a viral zoonotic disease, meaning "
+			+ "that it can spread from animals to humans. It can also spread between people.");
 }
 
 @AfterMethod

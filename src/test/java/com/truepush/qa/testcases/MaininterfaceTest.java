@@ -1,14 +1,21 @@
 package com.truepush.qa.testcases;
 
 
+
+
+
+
+import org.testng.annotations.AfterMethod;
+
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.awt.AWTException;
+
 import java.io.IOException;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.CampaignPage;
 import com.qa.truepush.pages.DashboardPage;
@@ -54,10 +61,7 @@ public class MaininterfaceTest  extends TestBase {
 	public void setup(){
 		
 		initialization();
-	
-          
-		report = new ExtentReports("/home/exe0028/Desktop/shiva/Truepushautomation/report/report.html", true);
-			
+          			
 		LoginPage = new Loginpage();
 		
 		projectpage = LoginPage.Validatelogin(prop.getProperty("email"), prop.getProperty("password"));
@@ -67,6 +71,9 @@ public class MaininterfaceTest  extends TestBase {
 		 projectpage.clickOnProjectlink();
 
 	     maininterface = new Maininterface();
+	     
+			report = new ExtentReports("/home/exe0028/Desktop/shiva/Truepushautomation/report/report.html", true);
+
 	
 	}
 	
@@ -77,9 +84,10 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validateCampaignPageLinkTest() throws Throwable {
 		
-		test = report.startTest("validateCampaignPageLinkTest");
 		
-		test.log(LogStatus.INFO,  test.addScreenCapture(takeScreenShot(driver))+"execution has been started");
+			test = report.startTest("validate Campaign Page Link Test");
+		
+	//	test.log(LogStatus.INFO,  test.addScreenCapture(takeScreenShot(driver))+"execution has been started");
 		
 		maininterface.clickoncampaignlink();
 		
@@ -94,6 +102,8 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validateRSSPageLinkTest() {
 	
+		test = report.startTest("validate RSS Page Link Test");
+
 		maininterface.clickonrsslink();
 		
 	}
@@ -104,6 +114,8 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validateSegmentsPageLinkTest() {
 		
+		test = report.startTest("validate Segments Page Link Test");
+
 		maininterface.clickonsegmentslink();
 		
 	}
@@ -111,6 +123,9 @@ public class MaininterfaceTest  extends TestBase {
 	@Test(priority = 4)
 	
 	public void validateTemplatesPageLinkTest() {
+		
+		test = report.startTest("validate Templates Page Link Test");
+
 		
 		maininterface.clickontemplateslink();
 		
@@ -120,6 +135,9 @@ public class MaininterfaceTest  extends TestBase {
 	@Test(priority = 5)
 	
 	public void validateTriggersPageLinkTest() {
+		
+		test = report.startTest("validate Triggers Page Link Test");
+
 		
 		maininterface.clickontriggerslink();
 		
@@ -132,6 +150,9 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void valiateSubscribersPageLinkTest() {
 		
+		test = report.startTest("valiate Subscribers Page Link Test");
+
+		
 		maininterface.clickonsubscriberslink();
 		
 	}
@@ -143,6 +164,8 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validateCodeIntegrationPageLinkTest() {
 		
+		test = report.startTest("validate CodeIntegration Page Link Test");
+
 		maininterface.clickoncodeintegrationlink();
 		
 	}
@@ -153,7 +176,9 @@ public class MaininterfaceTest  extends TestBase {
 	@Test(priority = 8)
 	
 	public void validateSettingsPageLinkTest() {
-		
+		 
+		test = report.startTest("validate Settings Page Link Test");
+
 		maininterface.clickonsettingslink();
 		
 	}
@@ -165,6 +190,9 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validatePricingPageLinkTest() {
 		
+		test = report.startTest("validate Pricing Page Link Test");
+
+		
 		maininterface.clickonpricinglink();
 		
 	}
@@ -175,9 +203,12 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validateProfileiconPageLinkTest() throws InterruptedException {
 		
+		test = report.startTest("validate Profileicon Page Link Test");
+
+		
 		Thread.sleep(2000);
 		
-		maininterface.verifyProfileIcon("icon", "chiluk@1997", "chiluk@1997");
+		maininterface.verifyProfileIcon("icon", "chiluka1", "chiluka1");
 		
 
 	}
@@ -186,11 +217,13 @@ public class MaininterfaceTest  extends TestBase {
 	
 	public void validatePageTitleTest() {
 		
+		test = report.startTest("validate Page Title Test");
+
 		 
 				
 				String title = maininterface.validatePageTilte();
 				
-				Assert.assertEquals(title, "Truepush","dash board page title not matched");
+				AssertJUnit.assertEquals(title, "Truepush","dash board page title not matched");
 			} 
 			
 
@@ -198,6 +231,9 @@ public class MaininterfaceTest  extends TestBase {
 
 	
 	public void validateCampaignButtonTest() throws AWTException {
+		
+		test = report.startTest("validate Campaign Button Test");
+
 		
 		maininterface.verifyCampaignButton();
 		
@@ -213,24 +249,35 @@ public class MaininterfaceTest  extends TestBase {
 		
 		public void validateProfileIconTest() throws InterruptedException {
 			
+			test = report.startTest("validate ProfileIcon Test");
+
+			
 			Thread.sleep(2000);
 			
 			maininterface.verfiyProfileIcon();
 			
 			
-		}
+		}  
 		
 		@Test(priority = 15)
 
-		public void validateDriftChat() {
+		public void validateDriftChatTest() throws Exception {
+			
+			test = report.startTest("validate DriftChat Test");
+
 			
 			maininterface.verfiyDriftChat();
+			
+			
 		}
 		
 			
-		@Test(priority = 16)
+		@Test(priority = 16 )
 
-			public void validateMenuButton() {
+			public void validateMenuButtonTest() {
+			
+			test = report.startTest("validate Menu Button Test");
+
 				
 				maininterface.verfiyMenuButton();
 				
@@ -238,26 +285,73 @@ public class MaininterfaceTest  extends TestBase {
 			
 		@Test(priority = 17)
 
-			public void validateSwichToProject() {
+			public void validateSwitchToProjectTest() {
 			
+			test = report.startTest("validate Switch To Project Test");
+
 			maininterface.verifySwichToProject("clone");
 				
 			
 			}
+		
+		
+		@Test(priority = 18)
+		
+		
+		public void validateLogoutButtonTest() throws InterruptedException {
+			
+			
+			test = report.startTest("validate Logout Button Test");
+			
+			Thread.sleep(2000);
+			
+		maininterface.verifyLogoutIcon();
+			
+		}
 			
 	
 	
-     @AfterMethod
+	@AfterMethod
      
-     public void teardown(){
-    	
-    
-    	 driver.close();
-    	 
-    	 report.endTest(test);
-    	 
-    	 report.flush();
-    	 
+ 	public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 			
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = MaininterfaceTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath)); //to add screenshot in extent report
+ 			//extentTest.log(LogStatus.FAIL, extentTest.addScreencast(screenshotPath)); //to add screencast/video in extent report
+ 		}
+ 		else if(result.getStatus()==ITestResult.SKIP){
+ 			
+ 			test.log(LogStatus.SKIP, "Test Case SKIPPED IS " + result.getName());
+ 			
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE SKIPPED IS "+result.getThrowable());
+ 			
+ 			String screenshotPath = MaininterfaceTest.getScreenshot(driver, result.getName());
+ 			
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 		}
+ 		
+ 		/*
+ 		else if(result.getStatus()==ITestResult.SUCCESS){
+ 			test.log(LogStatus.PASS, "Test Case PASSED IS " + result.getName());
+ 			
+ 			String screenshotPath = MaininterfaceTest.getScreenshot(driver, result.getName());
+
+            test.log(LogStatus.PASS,test.addScreenCapture(screenshotPath));
+ 		} */
+ 		
+ 		
+ 		report.endTest(test); //ending test and ends the current test and prepare to create html report
+ 		
+ 		driver.close();
      }
  
 		

@@ -5,15 +5,21 @@ package com.truepush.qa.testcases;
 
 
 
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import java.io.IOException;
+
+import org.testng.ITestResult;
+
+import org.testng.annotations.BeforeMethod;
 
 import com.qa.truepush.pages.DashboardPage;
 import com.qa.truepush.pages.Loginpage;
 import com.qa.truepush.pages.ProjectPage;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.LogStatus;
 import com.truepush.qa.testbase.TestBase;
 
 
@@ -51,6 +57,8 @@ public class DashboardTest extends TestBase{
 
 		
 		  Thread.sleep(2000);
+		  
+			report = new ExtentReports("/home/exe0028/Desktop/shiva/Truepushautomation/report/report.html", true);
 
 	}
 	
@@ -58,18 +66,24 @@ public class DashboardTest extends TestBase{
 	
 	@Test
 	
-	public void verifyWeeklyStatus() {
+	public void verifyWeeklyStatusTest() {
+		
+		test = report.startTest("verify Weekly Status Test");
 		
 	boolean  flag =	dashboardpage.Weeklystats();
 		
-	Assert.assertTrue(flag);
+	AssertJUnit.assertTrue(flag);
 	}
 	
 
 	
 	@Test
 	
-	public void verifyRefreshicon() {
+	public void verifyRefreshiconTest() {
+		
+		test = report.startTest("verify Refresh icon Test");
+
+		
 		
 		dashboardpage.clickonrefreshicon();
 		
@@ -79,8 +93,10 @@ public class DashboardTest extends TestBase{
 	
 	@Test
 	
-	public void verifyallcampaignslink() {
+	public void verifyallcampaignslinkTest() {
 		
+		test = report.startTest("verify allcampaigns link Test");
+
 		dashboardpage.clickonallcampaignslink();
 		
 		}
@@ -88,39 +104,74 @@ public class DashboardTest extends TestBase{
 	
 	@Test
 	
-	public void verifytotalsummary() {
+	public void verifytotalsummaryTest() {
 		
+		test = report.startTest("verify total summary Test");
+
 	boolean  flag =	dashboardpage.totalsummary();
 		
-	Assert.assertTrue(flag);
+	AssertJUnit.assertTrue(flag);
 	
 	}
 	
 	@Test
 	
-	public void verifylast2daysstats() {
+	public void verifylast2daysstatsTest() {
+		
+		test = report.startTest("verify last 2 days stats Test");
+
 		
 	boolean  flag =	dashboardpage.Last2daysstats();
 		
-	Assert.assertTrue(flag);
+	AssertJUnit.assertTrue(flag);
 	
 	}
 	
 	@Test
 	
-	public void verifylast5campaigns() {
+	public void verifylast5campaignsTest() {
 		
+		test = report.startTest("verify last 5 campaigns Test");
+
 	boolean  flag =	dashboardpage.Lastcampaigns();
 		
-	Assert.assertTrue(flag);
+	AssertJUnit.assertTrue(flag);
 	
 	}
+	
 	
 	
 	
 	@AfterMethod
 	
-	public void teardown() {
+public void tearDown(ITestResult result) throws IOException{
+ 		
+ 		if(result.getStatus()==ITestResult.FAILURE){
+ 			
+ 			test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getName()); //to add name in extent report
+ 			
+ 		test.log(LogStatus.FAIL, "TEST CASE FAILED IS "+result.getThrowable()); //to add error/exception in extent report
+ 			
+ 			String screenshotPath = DashboardTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+			
+ 		}	
+ 		
+ 		else if(result.getStatus()==ITestResult.SKIP) {
+ 			
+ 			
+ 			test.log(LogStatus.SKIP, "TEST CASE SKIPPED IS"+result.getName());
+ 			
+ 			test.log(LogStatus.SKIP, "TEST CASE SKIPPED IS"+result.getThrowable());
+ 			
+ 			String screenshotPath = DashboardTest.getScreenshot(driver, result.getName());
+ 			
+ 			test.log(LogStatus.FAIL, test.addScreenCapture(screenshotPath));
+ 		}
+			
+		report.endTest(test);	
+			
 		driver.close();
 	}
 	
