@@ -7,15 +7,15 @@
 
 	<listeners>
 
-		<listener class-name="com.qa.extentreportlisteners.Extentlisteners"/>
+		<listener class-name="com.qa.extentreportlistener.ExtentreporterNg"/>
 
 	</listeners>
 
-<test name="Registration">
+<test name="login">
 
 <classes>
 
-<class name="com.truepush.qa.testcases.RegistrationPageTest">
+<class name="com.truepush.qa.testcases.UsersTest">
 
 </class>
 

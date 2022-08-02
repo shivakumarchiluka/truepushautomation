@@ -14,17 +14,12 @@ import com.truepush.qa.testbase.TestBase;
 
 public class ProjectPage extends TestBase{
 
-	@FindBy(linkText="extent")
+	@FindBy(linkText="notification")
 
 	WebElement projectId;
 	
 	
-	@FindBy(linkText="controller")
 
-	WebElement project;
-	
-	
-	
 	@FindBy(xpath="//section[@class='component-wrapper']/descendant::a[2]")
 	
 	WebElement users;
@@ -41,7 +36,7 @@ public class ProjectPage extends TestBase{
 	
 	
 	
-	@FindBy(xpath = "//a[@class=\"project-type website\" and  @title =\"tinnier-chests.000webhostapp.com/\"]")
+	@FindBy(xpath = "//a[@class=\"project-type website\" ]")
 	
 	
 	WebElement platform;
@@ -168,15 +163,6 @@ public class ProjectPage extends TestBase{
 	
 
 	
-	public DashboardPage clickonproject() {
-		
-		
-		project.click();
-		
-		
-		return new DashboardPage();
-	}
-	
 	
 	public void verifySortBySubscribersButton() {
 		
@@ -232,9 +218,9 @@ public class ProjectPage extends TestBase{
         		
                 jsexecuter.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 
-        		SettingsPage setting = new SettingsPage();
+        	//	SettingsPage setting = new SettingsPage();
         		
-        		setting.clickWelcomeNotification("hai", "hello");
+        	//	setting.clickWelcomeNotification("hai", "hello");
         		
                 jsexecuter.executeScript("window.scrollTo(0,document.body.scrollHeight)");
 

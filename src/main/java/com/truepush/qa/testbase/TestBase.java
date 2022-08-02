@@ -9,6 +9,7 @@ import java.io.File;
 
 
 
+
 import java.io.FileInputStream;
 
 
@@ -32,7 +33,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -52,8 +52,11 @@ public class TestBase {
 
 
 	public static WebDriver driver;
+	
 	public static Properties prop;
+	
 	public  static EventFiringWebDriver eventdriver;
+	
 	public static Webeventlistener eventListener;
 	
 	public static ExtentReports report;
@@ -113,7 +116,7 @@ public class TestBase {
 			driver.manage().timeouts().pageLoadTimeout(Testut.PAGELOAD_TIMEOUT, TimeUnit.SECONDS);
 			driver.manage().timeouts().implicitlyWait(Testut.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+    	driver.get(prop.getProperty("url"));
 		driver.manage().timeouts().pageLoadTimeout(Testut.PAGELOAD_TIMEOUT, TimeUnit.SECONDS);
 
 
@@ -131,11 +134,17 @@ public class TestBase {
 		String browserName = prop.getProperty("browser");
 		
 		 if(browserName.equals("chrome")) {
-			  
-			 System.setProperty("webdriver.chrome.driver", "/home/exe0028/Desktop/shiva/chromedriver.exe");
 			 
-			 driver = new ChromeDriver();
-
+			 driver=	WebDriverManager.chromedriver().create();
+			 
+			 
+		 }
+				else if(browserName.equals("firefox")){
+					
+					 driver=	WebDriverManager.firefoxdriver().create();
+					 
+			  
+	
 		 }
 		 
 			driver.manage().timeouts().pageLoadTimeout(Testut.PAGELOAD_TIMEOUT, TimeUnit.SECONDS);

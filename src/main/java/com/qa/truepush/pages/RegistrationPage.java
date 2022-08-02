@@ -192,7 +192,9 @@ import com.truepush.qa.testbase.TestBase;
 			e.printStackTrace();
 		}
 		
-    /*   Set<String> windowhandles = driver.getWindowHandles();
+		
+		
+       Set<String> windowhandles = driver.getWindowHandles();
         
         
 		System.out.print(windowhandles);
@@ -212,10 +214,11 @@ import com.truepush.qa.testbase.TestBase;
 		System.out.println(childwindow); 
 		
 		
-	driver.switchTo().window(parentwindow); */
+	driver.switchTo().window(parentwindow); 
+	
+	driver.close();
 		
-			
-
+ 
 	}
 	
 

@@ -37,11 +37,13 @@ public class LoginTest extends TestBase {
 		 initialization();		 
 		 
        login = new Loginpage();
+       
+       projectpage = new ProjectPage();
 	 }
 	
 	 
 	 @Test
-	 public void ValidateLoginTest() {
+	 public void validateLoginTest() {
 		 
 		 test = report.startTest("validate login test");
 		 
@@ -51,6 +53,63 @@ public class LoginTest extends TestBase {
 		
 		System.out.println("successfully logined into the truepush account");
 	 }
+	 
+	 @Test
+	 
+	 public void validateLoginWithInvalidEmailTest() {
+		 
+		 
+		 login.Validatelogin("safsadffsfd@.com","chiluka");
+		 
+	 	 projectpage.clickOnProjectlink();
+		 
+		 
+	 }
+	 
+	 @Test
+	 
+	 public void validateLoginWithInvalidPasswordTest() {
+		 
+		 
+		 login.Validatelogin("mozillachrome35@outlook.com","chilu");
+		 
+	 	 projectpage.clickOnProjectlink();
+		 
+		 
+	 }
+	 
+	 @Test
+	 
+	 public void validateLoginWithBlankDataTest() {
+		 
+		 
+		 login.Validatelogin("","");
+		 
+	 	 projectpage.clickOnProjectlink();
+		 
+		 
+	 }
+	 
+	 @Test
+	 
+	 public void validateLoginWithInvalidDataTest() {
+		 
+		 
+		 login.Validatelogin("safsadffsfd","chilu");
+		 
+	 	 projectpage.clickOnProjectlink();
+		 
+		 
+	 }
+	 
+	 @Test
+	 
+	 public void validateForgotPasswordLinkTest() {
+		 
+		 login.validateForgotPasswordLink("mozillachrome35@outlook.com","mozillachrome35@outlook.com");
+		 
+	 }
+	 
 	 
 	 
 	 

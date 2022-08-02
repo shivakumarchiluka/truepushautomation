@@ -20,9 +20,11 @@ public class Extentlisteners implements ITestListener{
 	
 
 	static Date d = new Date();
+	
 	static String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
 
 	private static ExtentReports extent = Extentmanager.createInstance("/home/exe0028/"
+			
 			+ "Desktop/shiva/Truepushautomation/report"+fileName);
 	
 	public static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
@@ -41,8 +43,11 @@ public class Extentlisteners implements ITestListener{
 
 		
 		String methodName=result.getMethod().getMethodName();
-		String logText="<b>"+"TEST CASE:- "+ methodName.toUpperCase()+ " PASSED"+"</b>";		
-		Markup m=MarkupHelper.createLabel(logText, ExtentColor.GREEN);
+		
+		String logText="<b>"+"TEST CASE:- "+ methodName.toUpperCase()+ " PASSED"+"</b>";	
+		
+		Markup m = MarkupHelper.createLabel(logText, ExtentColor.GREEN);
+		
 		testReport.get().pass(m);
 		
 
@@ -54,25 +59,36 @@ public class Extentlisteners implements ITestListener{
 		
 		
 		String excepionMessage=Arrays.toString(result.getThrowable().getStackTrace());
+		
 		testReport.get().fail("<details>" + "<summary>" + "<b>" + "<font color=" + "red>" + "Exception Occured:Click to see"
+		
 				+ "</font>" + "</b >" + "</summary>" +excepionMessage.replaceAll(",", "<br>")+"</details>"+" \n");
 		
 		Extentmanager.captureScreenshot();
+		
 		testReport.get().fail("<b>" + "<font color=" + "red>" + "Screenshot of failure" + "</font>" + "</b>",
+				
 				MediaEntityBuilder.createScreenCaptureFromPath(Extentmanager.screenshotName)
 						.build());
 		
 		String failureLogg="TEST CASE FAILED";
+		
 		Markup m = MarkupHelper.createLabel(failureLogg, ExtentColor.RED);
+		
 		testReport.get().log(Status.FAIL, m);
 
 	}
 
 	public void onTestSkipped(ITestResult result) {
+		
 		String methodName=result.getMethod().getMethodName();
+		
 		String logText="<b>"+"Test Case:- "+ methodName+ " Skipped"+"</b>";		
+		
 		Markup m=MarkupHelper.createLabel(logText, ExtentColor.YELLOW);
+		
 		testReport.get().skip(m);
+		
 
 	}
 

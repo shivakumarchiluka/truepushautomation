@@ -6,10 +6,9 @@
 
 	<listeners>
 
-		<listener class-name="com.qa.extentreportlistener.ExtentreporterNg"/>
+		<listener class-name="com.qa.extentreportlisteners.Extentlisteners"/>
 
 	</listeners>
-
 
 
 <test name="Truepush Login">

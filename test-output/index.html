@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,12 +104,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.truepush.qa.testcases.RegistrationPageTest" class="method navigator-link" hash-for-method="validateNewProject">validateNewProject</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.truepush.qa.testcases.RegistrationPageTest" class="method navigator-link" hash-for-method="validateRegistration">validateRegistration</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.truepush.qa.testcases.LoginTest" class="method navigator-link" hash-for-method="validateForgotPasswordLinkTest">validateForgotPasswordLinkTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -127,21 +122,14 @@
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.truepush.qa.testcases.RegistrationPageTest</span>
+              <span class="class-name">com.truepush.qa.testcases.LoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="validateNewProject">
-                  </a> <!-- validateNewProject -->
-                  <span class="method-name">validateNewProject</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="validateRegistration">
-                  </a> <!-- validateRegistration -->
-                  <span class="method-name">validateRegistration</span>
+                  <a name="validateForgotPasswordLinkTest">
+                  </a> <!-- validateForgotPasswordLinkTest -->
+                  <span class="method-name">validateForgotPasswordLinkTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -149,7 +137,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/tmp/testng-eclipse--1263621088/testng-customsuite.xml</span>
+            <span class="header-content">/tmp/testng-eclipse-1792249991/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -158,7 +146,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.truepush.qa.testcases.RegistrationPageTest&quot;/&gt;
+      &lt;class name=&quot;com.truepush.qa.testcases.LoginTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;validateForgotPasswordLinkTest&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- com.truepush.qa.testcases.LoginTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -198,20 +190,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validateNewProject')
-data.setCell(0, 2, 'com.truepush.qa.testcases.RegistrationPageTest')
-data.setCell(0, 3, 17872);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'validateRegistration')
-data.setCell(1, 2, 'com.truepush.qa.testcases.RegistrationPageTest')
-data.setCell(1, 3, 1895);
+data.setCell(0, 1, 'validateForgotPasswordLinkTest')
+data.setCell(0, 2, 'com.truepush.qa.testcases.LoginTest')
+data.setCell(0, 3, 9762);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 19 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -226,9 +214,24 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">5 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.truepush.qa.testcases.LoginTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">validateLoginWithInvalidEmailTest</span>
+                <br/>
+                <span class="ignored-method-name">validateLoginWithInvalidDataTest</span>
+                <br/>
+                <span class="ignored-method-name">validateLoginWithInvalidPasswordTest</span>
+                <br/>
+                <span class="ignored-method-name">validateLoginWithBlankDataTest</span>
+                <br/>
+                <span class="ignored-method-name">validateLoginTest</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -237,30 +240,26 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.truepush.qa.testcases.RegistrationPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.truepush.qa.testcases.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setExtent</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
-              <div class="configuration-class before">
-                <span class="method-name">setup</span>
-                <span class="method-start">371 ms</span>
-              </div> <!-- configuration-class before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUP</span>
+                <span class="method-start">570 ms</span>
+              </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">validateRegistration</span>
-                <span class="method-start">6886 ms</span>
+                <span class="method-name">validateForgotPasswordLinkTest</span>
+                <span class="method-start">5638 ms</span>
               </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">validateNewProject</span>
-                <span class="method-start">8788 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-class after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">26666 ms</span>
-              </div> <!-- configuration-class after -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=validateForgotPasswordLinkTest status=SUCCESS method=LoginTest.validateForgotPasswo...)</span>
+                <span class="method-start">15408 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">endreport</span>
-                <span class="method-start">26858 ms</span>
+                <span class="method-start">15602 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

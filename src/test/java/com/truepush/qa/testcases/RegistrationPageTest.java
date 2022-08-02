@@ -1,13 +1,10 @@
 package com.truepush.qa.testcases;
 
-
-
-
 import java.io.IOException;
 
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.truepush.pages.HomePage;
@@ -34,7 +31,7 @@ public class RegistrationPageTest extends TestBase {
 	
 	
 	
-	@BeforeClass
+	@BeforeMethod
 	
 	public void setup(){
 
@@ -57,17 +54,9 @@ public class RegistrationPageTest extends TestBase {
 		
 		test = report.startTest("validate Registration Test");
 		
-  register.verifyRegistration("airindia", "jiciv1129@mahazai.com", "chiluka");	
-  
-  
-	}
+  register.verifyRegistration("airindia", "robapa177@lenfly.com", "chiluka");	
+ 
 	
-	@Test(priority = 2)
-	
-  public void validateNewProjectTest() throws Exception {
-		
-		test = report.startTest("validate New Project Test");
-		
 		Thread.sleep(2000);
 		
 		register.createNewProject("extent");
@@ -84,7 +73,7 @@ public class RegistrationPageTest extends TestBase {
 	
 	
 	
-    @AfterClass
+    @AfterMethod
 	
 	public void tearDown(ITestResult result) throws IOException{
  		
@@ -114,6 +103,7 @@ public class RegistrationPageTest extends TestBase {
  		
 			report.endTest(test);
  		    
+
 			
 driver.quit();			
 
